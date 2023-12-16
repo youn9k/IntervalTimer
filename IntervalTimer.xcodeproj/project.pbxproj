@@ -17,6 +17,8 @@
 		7B40E83D2B2D852E0062AEDE /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 7B40E83C2B2D852E0062AEDE /* Localizable.xcstrings */; };
 		7B40E83F2B2D87F90062AEDE /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B40E83E2B2D87F90062AEDE /* MainView.swift */; };
 		7B40E8412B2D884E0062AEDE /* WorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B40E8402B2D884E0062AEDE /* WorkoutView.swift */; };
+		7B40E8432B2DC5500062AEDE /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B40E8422B2DC5500062AEDE /* Utils.swift */; };
+		7B40E8492B2DC7950062AEDE /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B40E8482B2DC7950062AEDE /* Font.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,11 @@
 		7B40E83C2B2D852E0062AEDE /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		7B40E83E2B2D87F90062AEDE /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		7B40E8402B2D884E0062AEDE /* WorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutView.swift; sourceTree = "<group>"; };
+		7B40E8422B2DC5500062AEDE /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		7B40E8452B2DC7570062AEDE /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
+		7B40E8462B2DC7570062AEDE /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
+		7B40E8472B2DC7570062AEDE /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
+		7B40E8482B2DC7950062AEDE /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +146,8 @@
 				7B39B06C2B2D836D00825D33 /* ContentView.swift */,
 				7B40E83E2B2D87F90062AEDE /* MainView.swift */,
 				7B40E8402B2D884E0062AEDE /* WorkoutView.swift */,
+				7B40E8422B2DC5500062AEDE /* Utils.swift */,
+				7B40E8482B2DC7950062AEDE /* Font.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -146,10 +155,21 @@
 		7B40E83B2B2D85080062AEDE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7B40E8442B2DC73A0062AEDE /* Fonts */,
 				7B39B06E2B2D836E00825D33 /* Assets.xcassets */,
 				7B40E83C2B2D852E0062AEDE /* Localizable.xcstrings */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		7B40E8442B2DC73A0062AEDE /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				7B40E8462B2DC7570062AEDE /* Pretendard-Bold.otf */,
+				7B40E8452B2DC7570062AEDE /* Pretendard-Light.otf */,
+				7B40E8472B2DC7570062AEDE /* Pretendard-Medium.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,10 +304,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B40E8432B2DC5500062AEDE /* Utils.swift in Sources */,
 				7B39B06D2B2D836D00825D33 /* ContentView.swift in Sources */,
 				7B40E83F2B2D87F90062AEDE /* MainView.swift in Sources */,
 				7B40E8412B2D884E0062AEDE /* WorkoutView.swift in Sources */,
 				7B39B06B2B2D836D00825D33 /* IntervalTimerApp.swift in Sources */,
+				7B40E8492B2DC7950062AEDE /* Font.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
