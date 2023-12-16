@@ -1,0 +1,23 @@
+{
+  "sourceLanguage" : "ko",
+  "strings" : {
+    "AppDisplayName" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clean Interval Timer"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "클린 인터벌 타이머"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
