@@ -11,16 +11,16 @@ struct GlassRemainingTimeView: View {
     var width: CGFloat
     var height: CGFloat
     var totalTime: Double = 0.0 // seconds
-    var lineColors: [Color]
+    var fillLineColors: [Color]
     var lineWidth: CGFloat
     @State private var remainingTime: TimeInterval
     
-    init(width: CGFloat, height: CGFloat, totalTime: Double, lineColors: [Color] = [.blue], lineWidth: CGFloat = 5) {
+    init(width: CGFloat, height: CGFloat, totalTime: Double, fillLineColors: [Color] = [.blue], lineWidth: CGFloat = 5) {
         self.width = width
         self.height = height
         self.totalTime = totalTime
         self.remainingTime = totalTime
-        self.lineColors = lineColors
+        self.fillLineColors = fillLineColors
         self.lineWidth = lineWidth
         self.remainingTime = remainingTime
     }
@@ -35,7 +35,7 @@ struct GlassRemainingTimeView: View {
             RoundedRectangle(cornerRadius: 17)
                 .trim(from: 0.0, to: lineLength())
                 .stroke(style: StrokeStyle(lineWidth: lineWidth, lineCap: .round))
-                .fill(AngularGradient(gradient: Gradient(colors: lineColors), center: .center, startAngle: Angle(degrees: 0), endAngle: Angle(degrees: 360)))
+                .fill(AngularGradient(gradient: Gradient(colors: fillLineColors), center: .center, startAngle: Angle(degrees: 0), endAngle: Angle(degrees: 360)))
                 .rotationEffect(.degrees(-90))
                 .frame(width: height + lineWidth, height: width + lineWidth)
             

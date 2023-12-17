@@ -11,7 +11,8 @@ import SwiftUI
 struct IntervalTimerApp: App {
     var body: some Scene {
         WindowGroup {
-            WorkoutView()
+            //WorkoutView()
+            MainView()
         }
     }
 }

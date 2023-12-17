@@ -26,7 +26,7 @@ struct WorkoutView: View {
                 
                 Spacer().frame(height: 60)
                 
-                GlassRemainingTimeView(width: APP_WIDTH() - 80, height: 300, totalTime: 10, lineColors: [.indigo], lineWidth: 3)
+                GlassRemainingTimeView(width: APP_WIDTH() - 80, height: 300, totalTime: 10, fillLineColors: [.indigo], lineWidth: 3)
                 
                 Spacer().frame(height: 15)
                 

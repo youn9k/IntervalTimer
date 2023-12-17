@@ -45,3 +45,40 @@ public func colorFromRGB(_ hexString: String, alpha: CGFloat = 1.0) -> UIColor {
                    green: CGFloat((hexToInt & 0xFF00) >> 8) / 255.0,
                    blue: CGFloat(hexToInt & 0xFF) / 255.0, alpha: alpha)
 }
+
+public func APP_NAME() -> String {
+    return Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String ?? ""
+}
+
+public func APP_VERSION() -> String {
+    return Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? ""
+}
+
+public func OS_VERSION() -> String {
+    return UIDevice.current.systemVersion
+}
+
+public func OS_NAME() -> String {
+    let osName: String = {
+        #if os(iOS)
+        #if targetEnvironment(macCatalyst)
+        return "macOS(Catalyst)"
+        #else
+        return "iOS"
+        #endif
+        #elseif os(watchOS)
+        return "watchOS"
+        #elseif os(tvOS)
+        return "tvOS"
+        #elseif os(macOS)
+        return "macOS"
+        #elseif os(Linux)
+        return "Linux"
+        #elseif os(Windows)
+        return "Windows"
+        #else
+        return "Unknown"
+        #endif
+    }()
+    return osName
+}
