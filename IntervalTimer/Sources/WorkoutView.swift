@@ -8,56 +8,37 @@
 import SwiftUI
 
 struct WorkoutView: View {
+    @State var workoutProgress: Double = 0.0
+    
     var body: some View {
         ZStack {
-            backgroundColorView(.cyan)
+            BackgroundColorView(colors: [Color.timerSkyBlue, Color.timerMint, Color.timerSkyBlue])
             VStack {
                 TitleView("운동")
+                    .kerning(-0.5)
                 
                 Spacer()
-                TimerView()
-                    .frame(width: APP_WIDTH() - 80, height: 300)
+                
+                RectangleClockView(width: APP_WIDTH() - 80, height: 300, totalTime: 10, lineColors: [.white], lineWidth: 7, rectangleColor: .timerIvory)
                 
                 InfoView()
                     .frame(width: APP_WIDTH() - 80, height: 100)
-                    //.background(.green)
-                
+
                 Spacer()
                 
-                playPauseButtonView()
-                    .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
+                playPauseButtonView(isPlaying: true)
+                    .frame(width: 100, height: 100)
                 
                 Spacer().frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: 100, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
             }
         }
-        //.ignoresSafeArea()
-        
-        
-    }
-    
-    func backgroundColorView(_ color: Color) -> some View {
-        color.ignoresSafeArea()
+
     }
     
     func TitleView(_ title: String) -> some View {
         Text(title)
-            .font(.TimerFont.bold(size: 20))
-    }
-    
-    func TimerView() -> some View {
-        ZStack {
-            RoundedRectangle(cornerSize: CGSize(width: 15, height: 15), style: .continuous)
-                .foregroundStyle(.white)
-                .opacity(0.8)
-                .shadow(radius: 10)
-            VStack {
-                Text("00:09")
-                    .font(.custom("Pretendard-Bold", size: 60))
-                    .padding(.top, 10)
-                Text("남은 시간")
-                    .font(.subheadline)
-            }
-        }
+            .font(.TimerFont.bold(size: 24))
+            .foregroundStyle(.white)
     }
     
     func InfoView() -> some View {
@@ -80,9 +61,15 @@ struct WorkoutView: View {
 
             Spacer()
             
-            VStack {
-                Text("124")
-                Image(systemName: "heart").foregroundStyle(.red)
+            VStack(spacing: 2) {
+                HStack(spacing: 0) {
+                    Text("124")
+                    Image(systemName: "heart")
+                        .resizable()
+                        .frame(width: 15, height: 15)
+                        .foregroundStyle(.red)
+                }
+                Text("심박수")
             }
             
             VStack {
@@ -96,13 +83,22 @@ struct WorkoutView: View {
         }
     }
     
-    func playPauseButtonView() -> some View {
-        Button(action: {
+    func playPauseButtonView(isPlaying: Bool) -> some View {
+        return isPlaying ? Button(action: {
             
         }, label: {
             Image(systemName: "pause.circle.fill")
                 .resizable()
                 .foregroundStyle(.white)
+                .shadow(radius: 5)
+                
+        }) : Button(action: {
+            
+        }, label: {
+            Image(systemName: "play.circle.fill")
+                .resizable()
+                .foregroundStyle(.white)
+                .shadow(radius: 5)
                 
         })
     }

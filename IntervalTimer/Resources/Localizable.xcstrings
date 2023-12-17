@@ -1,6 +1,21 @@
 {
   "sourceLanguage" : "ko",
   "strings" : {
+    "00:09" : {
+
+    },
+    "4/8" : {
+
+    },
+    "05:36" : {
+
+    },
+    "124" : {
+
+    },
+    "245 Kcal" : {
+
+    },
     "AppDisplayName" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -17,6 +32,27 @@
           }
         }
       }
+    },
+    "Hello, world!" : {
+
+    },
+    "MainView" : {
+
+    },
+    "남은 시간" : {
+
+    },
+    "세트" : {
+
+    },
+    "심박수" : {
+
+    },
+    "운동 시간" : {
+
+    },
+    "칼로리" : {
+
     }
   },
   "version" : "1.0"
