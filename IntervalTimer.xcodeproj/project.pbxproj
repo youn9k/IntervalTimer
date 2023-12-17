@@ -151,15 +151,10 @@
 			isa = PBXGroup;
 			children = (
 				7B39B06A2B2D836D00825D33 /* IntervalTimerApp.swift */,
-				7B39B06C2B2D836D00825D33 /* ContentView.swift */,
-				7B40E83E2B2D87F90062AEDE /* MainView.swift */,
-				7B40E8402B2D884E0062AEDE /* WorkoutView.swift */,
 				7B40E8422B2DC5500062AEDE /* Utils.swift */,
 				7B40E8482B2DC7950062AEDE /* Font.swift */,
-				7B40E84A2B2E872C0062AEDE /* BackgroundColorView.swift */,
-				7B40E84C2B2E8CE90062AEDE /* GlassRemainingTImeView.swift */,
-				7B40E8502B2EE7DE0062AEDE /* GlassWorkoutInfoView.swift */,
-				7B40E8522B2EF0060062AEDE /* CarouselView.swift */,
+				7B40E8552B2F001C0062AEDE /* ViewModels */,
+				7B40E8542B2F00150062AEDE /* Views */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -182,6 +177,27 @@
 				7B40E8472B2DC7570062AEDE /* Pretendard-Medium.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		7B40E8542B2F00150062AEDE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7B39B06C2B2D836D00825D33 /* ContentView.swift */,
+				7B40E83E2B2D87F90062AEDE /* MainView.swift */,
+				7B40E84A2B2E872C0062AEDE /* BackgroundColorView.swift */,
+				7B40E8522B2EF0060062AEDE /* CarouselView.swift */,
+				7B40E8402B2D884E0062AEDE /* WorkoutView.swift */,
+				7B40E84C2B2E8CE90062AEDE /* GlassRemainingTImeView.swift */,
+				7B40E8502B2EE7DE0062AEDE /* GlassWorkoutInfoView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7B40E8552B2F001C0062AEDE /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
