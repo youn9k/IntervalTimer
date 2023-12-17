@@ -10,26 +10,40 @@ import SwiftUI
 struct WorkoutView: View {
     @State var workoutProgress: Double = 0.0
     
+    let info1 = [WorkoutInfo(title: "세트", Content: "4/8"), WorkoutInfo(title: "운동시간", Content: "05:36"), WorkoutInfo(title: "심박수", Content: "124")]
+    let info2 = [WorkoutInfo(title: "세트수", Content: "4/8"), WorkoutInfo(title: "운동시간", Content: "05:36"), WorkoutInfo(title: "칼로리", Content: "2456 Kcal")]
+    
     var body: some View {
         ZStack {
-            BackgroundColorView(colors: [Color.timerSkyBlue, Color.timerMint, Color.timerSkyBlue])
+            BackgroundColorView(colors: [Color.timerBlue])
+//            Image(.test)
+//                .resizable()
+//                .aspectRatio(contentMode: .fill)
+//                .ignoresSafeArea()
+            
             VStack {
                 TitleView("운동")
-                    .kerning(-0.5)
                 
-                Spacer()
+                Spacer().frame(height: 60)
                 
-                RectangleClockView(width: APP_WIDTH() - 80, height: 300, totalTime: 10, lineColors: [.white], lineWidth: 7, rectangleColor: .timerIvory)
+                GlassRemainingTimeView(width: APP_WIDTH() - 80, height: 300, totalTime: 10, lineColors: [.indigo], lineWidth: 3)
                 
-                InfoView()
-                    .frame(width: APP_WIDTH() - 80, height: 100)
+                Spacer().frame(height: 15)
+                
+                CarouselView(pageCount: 2, visibleEdgeSpace: 1, spacing: 60) { _ in
+                    GlassWorkoutInfoView(width: APP_WIDTH() - 80, height: 100, workoutInfos: info1)
+                    GlassWorkoutInfoView(width: APP_WIDTH() - 80, height: 100, workoutInfos: info2)
+                    Spacer()
+                }
+                .frame(height: 100)
+                //.background(.yellow)
 
                 Spacer()
                 
                 playPauseButtonView(isPlaying: true)
                     .frame(width: 100, height: 100)
                 
-                Spacer().frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: 100, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                Spacer()
             }
         }
 
@@ -38,49 +52,8 @@ struct WorkoutView: View {
     func TitleView(_ title: String) -> some View {
         Text(title)
             .font(.TimerFont.bold(size: 24))
+            .kerning(-0.75)
             .foregroundStyle(.white)
-    }
-    
-    func InfoView() -> some View {
-        HStack {
-            Image(systemName: "arrow.left")
-            
-            Spacer()
-            
-            VStack {
-                Text("4/8")
-                Text("세트")
-            }
-            
-            Spacer()
-            
-            VStack {
-                Text("05:36")
-                Text("운동 시간")
-            }
-
-            Spacer()
-            
-            VStack(spacing: 2) {
-                HStack(spacing: 0) {
-                    Text("124")
-                    Image(systemName: "heart")
-                        .resizable()
-                        .frame(width: 15, height: 15)
-                        .foregroundStyle(.red)
-                }
-                Text("심박수")
-            }
-            
-            VStack {
-                Text("245 Kcal")
-                Text("칼로리")
-            }
-            
-            Spacer()
-            
-            Image(systemName: "arrow.right")
-        }
     }
     
     func playPauseButtonView(isPlaying: Bool) -> some View {

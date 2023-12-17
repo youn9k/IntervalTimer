@@ -20,7 +20,9 @@
 		7B40E8432B2DC5500062AEDE /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B40E8422B2DC5500062AEDE /* Utils.swift */; };
 		7B40E8492B2DC7950062AEDE /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B40E8482B2DC7950062AEDE /* Font.swift */; };
 		7B40E84B2B2E872C0062AEDE /* BackgroundColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B40E84A2B2E872C0062AEDE /* BackgroundColorView.swift */; };
-		7B40E84D2B2E8CE90062AEDE /* RectangleClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B40E84C2B2E8CE90062AEDE /* RectangleClockView.swift */; };
+		7B40E84D2B2E8CE90062AEDE /* GlassRemainingTImeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B40E84C2B2E8CE90062AEDE /* GlassRemainingTImeView.swift */; };
+		7B40E8512B2EE7DE0062AEDE /* GlassWorkoutInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B40E8502B2EE7DE0062AEDE /* GlassWorkoutInfoView.swift */; };
+		7B40E8532B2EF0060062AEDE /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B40E8522B2EF0060062AEDE /* CarouselView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +62,9 @@
 		7B40E8472B2DC7570062AEDE /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		7B40E8482B2DC7950062AEDE /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		7B40E84A2B2E872C0062AEDE /* BackgroundColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundColorView.swift; sourceTree = "<group>"; };
-		7B40E84C2B2E8CE90062AEDE /* RectangleClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleClockView.swift; sourceTree = "<group>"; };
+		7B40E84C2B2E8CE90062AEDE /* GlassRemainingTImeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassRemainingTImeView.swift; sourceTree = "<group>"; };
+		7B40E8502B2EE7DE0062AEDE /* GlassWorkoutInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassWorkoutInfoView.swift; sourceTree = "<group>"; };
+		7B40E8522B2EF0060062AEDE /* CarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,7 +157,9 @@
 				7B40E8422B2DC5500062AEDE /* Utils.swift */,
 				7B40E8482B2DC7950062AEDE /* Font.swift */,
 				7B40E84A2B2E872C0062AEDE /* BackgroundColorView.swift */,
-				7B40E84C2B2E8CE90062AEDE /* RectangleClockView.swift */,
+				7B40E84C2B2E8CE90062AEDE /* GlassRemainingTImeView.swift */,
+				7B40E8502B2EE7DE0062AEDE /* GlassWorkoutInfoView.swift */,
+				7B40E8522B2EF0060062AEDE /* CarouselView.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -310,14 +316,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B40E8532B2EF0060062AEDE /* CarouselView.swift in Sources */,
 				7B40E8432B2DC5500062AEDE /* Utils.swift in Sources */,
 				7B39B06D2B2D836D00825D33 /* ContentView.swift in Sources */,
 				7B40E83F2B2D87F90062AEDE /* MainView.swift in Sources */,
 				7B40E8412B2D884E0062AEDE /* WorkoutView.swift in Sources */,
 				7B39B06B2B2D836D00825D33 /* IntervalTimerApp.swift in Sources */,
 				7B40E84B2B2E872C0062AEDE /* BackgroundColorView.swift in Sources */,
+				7B40E8512B2EE7DE0062AEDE /* GlassWorkoutInfoView.swift in Sources */,
 				7B40E8492B2DC7950062AEDE /* Font.swift in Sources */,
-				7B40E84D2B2E8CE90062AEDE /* RectangleClockView.swift in Sources */,
+				7B40E84D2B2E8CE90062AEDE /* GlassRemainingTImeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
