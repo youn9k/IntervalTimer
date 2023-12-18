@@ -10,12 +10,13 @@ import SwiftUI
 struct GlassView<Content: View>: View {
     var width: CGFloat
     var height: CGFloat
-    var cornerRadius: CGFloat = 15
+    var cornerRadius: CGFloat
     @ViewBuilder let content:() -> Content
     
-    init(width: CGFloat, height: CGFloat, content: @escaping () -> Content) {
+    init(width: CGFloat, height: CGFloat, cornerRadius: CGFloat = 15, content: @escaping () -> Content) {
         self.width = width
         self.height = height
+        self.cornerRadius = cornerRadius
         self.content = content
     }
     
@@ -40,9 +41,10 @@ struct GlassView<Content: View>: View {
 
 #Preview {
     ZStack {
-        Color.yellow.ignoresSafeArea()
+        //Image(.test).ignoresSafeArea()
+        Color.blue.ignoresSafeArea()
         GlassView(width: APP_WIDTH()-80, height: 200, content: {
-            Text("Glass")
+            Text("Glass").foregroundStyle(.yellow)
         })
     }
     
