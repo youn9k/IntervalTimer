@@ -15,20 +15,19 @@ struct HomeView: View {
                 Spacer().frame(height: 30)
                 totalTimeView()
                 Spacer()
-                //.frame(height: 60)
                 
                 VStack(spacing: 20) {
                     HStack(spacing: 20) {
                         Button(action: {
                             print(APP_HEIGHT())
                         }, label: {
-                            setupView(icon: "arrow.counterclockwise.circle.fill", title: "세트 수", time: "5", color: .timerGray)
+                            setupView(icon: "arrow.counterclockwise.circle.fill", title: "NUM_OF_SETS", time: "5", color: .timerGray)
                         }).frame(width: 170, height: 120)
                         
                         Button(action: {
                             
                         }, label: {
-                            setupView(icon: "figure.walk.circle.fill", title: "준비 운동", time: "00:40", color: .blue)
+                            setupView(icon: "figure.walk.circle.fill", title: "WARM_UP", time: "00:40", color: .blue)
                         }).frame(width: 170, height: 120)
                     }
                     
@@ -36,13 +35,13 @@ struct HomeView: View {
                         Button(action: {
                             
                         }, label: {
-                            setupView(icon: "figure.run.circle.fill", title: "운동", time: "00:40", color: .green)
+                            setupView(icon: "figure.run.circle.fill", title: "WORKOUT", time: "00:40", color: .green)
                         }).frame(width: 170, height: 120)
                         
                         Button(action: {
                             
                         }, label: {
-                            setupView(icon: "pause.circle.fill", title: "휴식", time: "00:20", color: .yellow)
+                            setupView(icon: "pause.circle.fill", title: "REST", time: "00:20", color: .yellow)
                         }).frame(width: 170, height: 120)
                     }
                     
@@ -60,7 +59,7 @@ struct HomeView: View {
     func totalTimeView() -> some View {
         
         VStack {
-            Text("총 운동 시간")
+            Text("TOTAL_WORKOUT_TIME")
                 .font(.TimerFont.bold(size: 20))
                 .foregroundStyle(.white)
                 .kerning(-1.5)
@@ -85,8 +84,8 @@ struct HomeView: View {
                 .foregroundStyle(.green)
                 .shadow(radius: 8)
                 .overlay {
-                    Text("운동 시작")
-                        .font(.TimerFont.bold(size: 28))
+                    Text("WORKOUT_START")
+                        .font(.TimerFont.bold(size: 24))
                         .fontWeight(.bold)
                         .kerning(-0.75)
                         .foregroundStyle(.white)
@@ -103,7 +102,7 @@ struct HomeView: View {
                     let size = proxy.size
                     VStack {
                         HStack {
-                            Text(title)
+                            Text(LocalizedStringKey(title))
                                 .font(.TimerFont.bold(size: 16))
                                 .kerning(-0.75)
                                 .foregroundStyle(.gray)
@@ -136,6 +135,6 @@ struct HomeView: View {
 
 #Preview {
     
-    HomeView()
+    MainView()
     
 }

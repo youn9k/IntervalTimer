@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  IntervalTimer
+
+  Created by YoungK on 12/20/23.
+  
+*/
+
+"TOTAL_WORKOUT_TIME" = "Total Workout Time";
+
+"NUM_OF_SETS" = "Sets";
+
+"WARM_UP" = "Warm-up";
+
+"WORKOUT" = "Workout";
+
+"REST" = "Rest";
+
+"WORKOUT_START" = "Workout Start";

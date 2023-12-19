@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  IntervalTimer
+
+  Created by YoungK on 12/20/23.
+  
+*/
+
+"TOTAL_WORKOUT_TIME" = "총 운동 시간";
+
+"NUM_OF_SETS" = "세트 수";
+
+"WARM_UP" = "준비 운동";
+
+"WORKOUT" = "운동";
+
+"REST" = "휴식";
+
+"WORKOUT_START" = "운동 시작";

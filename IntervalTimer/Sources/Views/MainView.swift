@@ -17,9 +17,7 @@ struct MainView: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             HomeView()
-            //bottomTabBar(selection: tab)
             CustomTabBar(tab: $tab)
-                //.frame(width: APP_WIDTH(), height: 56)
         }
         .ignoresSafeArea(edges: .bottom)
     }
