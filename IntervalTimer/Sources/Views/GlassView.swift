@@ -35,6 +35,7 @@ struct GlassView<Content: View>: View {
                 .overlay {
                     content()
                 }
+            //content()
         }
     }
 }
@@ -44,7 +45,7 @@ struct GlassView<Content: View>: View {
         //Image(.test).ignoresSafeArea()
         Color.blue.ignoresSafeArea()
         GlassView(width: APP_WIDTH()-80, height: 200, content: {
-            Text("Glass").foregroundStyle(.yellow)
+            Text("Glass").foregroundStyle(.yellow).background()
         })
     }
     

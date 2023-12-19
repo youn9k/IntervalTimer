@@ -12,110 +12,130 @@ struct HomeView: View {
         ZStack {
             BackgroundColorView(colors: [.timerMint, .timerBlue, .timerMint])
             VStack {
-                titleView()
-                Spacer().frame(height: 80)
+                Spacer().frame(height: 30)
                 totalTimeView()
-                Spacer().frame(height: 80)
-                GlassView(width: APP_WIDTH(), height: 500, cornerRadius: 30) {
-                    VStack(spacing: 20) {
-                        GlassCardButton(width: APP_WIDTH() - 60, height: 100, icon: "play.circle.fill", title: "준비 운동", content: "00:10", color: .timerGray)
-                         GlassCardButton(width: APP_WIDTH() - 60, height: 100, icon: "play.circle.fill", title: "운동", content: "00:10", color: .green)
-                         GlassCardButton(width: APP_WIDTH() - 60, height: 100, icon: "play.circle.fill", title: "휴식", content: "00:10", color: .yellow)
-                     }
-                }
-//               VStack(spacing: 20) {
-//                   GlassCardButton(width: APP_WIDTH() - 60, height: 100, icon: "play.circle.fill", title: "준비 운동", content: "00:10", color: .timerGray)
-//                    GlassCardButton(width: APP_WIDTH() - 60, height: 100, icon: "play.circle.fill", title: "운동", content: "00:10", color: .green)
-//                    GlassCardButton(width: APP_WIDTH() - 60, height: 100, icon: "play.circle.fill", title: "휴식", content: "00:10", color: .yellow)
-//                }
                 Spacer()
-            }.ignoresSafeArea(edges: .bottom)
+                //.frame(height: 60)
+                
+                VStack(spacing: 20) {
+                    HStack(spacing: 20) {
+                        Button(action: {
+                            print(APP_HEIGHT())
+                        }, label: {
+                            setupView(icon: "arrow.counterclockwise.circle.fill", title: "세트 수", time: "5", color: .timerGray)
+                        }).frame(width: 170, height: 120)
+                        
+                        Button(action: {
+                            
+                        }, label: {
+                            setupView(icon: "figure.walk.circle.fill", title: "준비 운동", time: "00:40", color: .blue)
+                        }).frame(width: 170, height: 120)
+                    }
+                    
+                    HStack(spacing: 20) {
+                        Button(action: {
+                            
+                        }, label: {
+                            setupView(icon: "figure.run.circle.fill", title: "운동", time: "00:40", color: .green)
+                        }).frame(width: 170, height: 120)
+                        
+                        Button(action: {
+                            
+                        }, label: {
+                            setupView(icon: "pause.circle.fill", title: "휴식", time: "00:20", color: .yellow)
+                        }).frame(width: 170, height: 120)
+                    }
+                    
+                    startButton()
+                        .padding(.top, 10)
+                    
+                    Spacer().frame(height: 56 + SAFEAREA_BOTTOM_HEIGHT())
+                }
+            }
             
         }
         
-    }
-    
-    func titleView() -> some View {
-        Text(APP_NAME())
-            .font(.TimerFont.bold(size: 24))
-            .foregroundStyle(.white)
-            .kerning(-1.5)
     }
     
     func totalTimeView() -> some View {
-        Text("18:40")
-            .font(.TimerFont.bold(size: 80))
-            .foregroundStyle(.white)
-            .kerning(-1.5)
-    }
-    
-    func gridButtonView() -> some View {
+        
         VStack {
-            HStack {
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                    /*@START_MENU_TOKEN@*/Text("Button")/*@END_MENU_TOKEN@*/
-                })
-            }
+            Text("총 운동 시간")
+                .font(.TimerFont.bold(size: 20))
+                .foregroundStyle(.white)
+                .kerning(-1.5)
+                .opacity(0.8)
             
-            HStack {
-                
-            }
-            
-            HStack {
-                
-            }
+            Text("18:40")
+                .font(.TimerFont.bold(size: 80))
+                .foregroundStyle(.white)
+                .kerning(-1.5)
         }
+        
+        
     }
-}
-
-#Preview {
-    HomeView()
-}
-
-struct GlassCardButton: View {
-    let width: CGFloat
-    let height: CGFloat
-    let icon: String
-    let title: String
-    var content: String
-    let color: Color
     
-    var body: some View {
+    func startButton() -> some View {
         Button(action: {
             
         }, label: {
-            GlassView(width: width, height: height) {
-                ZStack {
-                    color.opacity(0.15)
-                    
-                    HStack {
-                        Label( title: {
+            RoundedRectangle(cornerRadius: 20)
+                .frame(height: 80)
+                .padding(.horizontal, 20)
+                .foregroundStyle(.green)
+                .shadow(radius: 8)
+                .overlay {
+                    Text("운동 시작")
+                        .font(.TimerFont.bold(size: 28))
+                        .fontWeight(.bold)
+                        .kerning(-0.75)
+                        .foregroundStyle(.white)
+                }
+        })
+    }
+    
+    func setupView(icon: String, title: String, time: String, color: Color) -> some View {
+        RoundedRectangle(cornerRadius: 20)
+            .foregroundStyle(.white)
+            .shadow(radius: 8)
+            .overlay {
+                GeometryReader { proxy in
+                    let size = proxy.size
+                    VStack {
+                        HStack {
                             Text(title)
-                                .font(.TimerFont.bold(size: 24))
+                                .font(.TimerFont.bold(size: 16))
                                 .kerning(-0.75)
-                                .foregroundStyle(.black)
-                        }, icon: {
+                                .foregroundStyle(.gray)
+                            
+                            Spacer()
+                            
                             Image(systemName: icon)
                                 .resizable()
-                                .frame(width: 24, height: 24)
+                                .frame(width: 28, height: 28)
                                 .foregroundStyle(color)
-                        })
+                        }
                         
-                        Spacer()
-                        
-                        Text(content)
-                            .font(.TimerFont.bold(size: 28))
-                            .fontWeight(.bold)
+                        Text(time)
+                            .font(.TimerFont.bold(size: 36))
+                            .fontWeight(.semibold)
                             .kerning(-0.75)
                             .foregroundStyle(color)
+                        
+                        Spacer()
                     }
+                    .padding(.vertical, 10)
                     .padding(.horizontal, 20)
-                    .frame(width: width-20, height: height - 20)
+                    .frame(width: size.width, height: size.height)
                 }
                 
-                
             }
-        })
-        
     }
+    
+}
+
+#Preview {
+    
+    HomeView()
+    
 }

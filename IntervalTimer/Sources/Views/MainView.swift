@@ -19,7 +19,9 @@ struct MainView: View {
             HomeView()
             //bottomTabBar(selection: tab)
             CustomTabBar(tab: $tab)
+                //.frame(width: APP_WIDTH(), height: 56)
         }
+        .ignoresSafeArea(edges: .bottom)
     }
 }
 
@@ -47,10 +49,9 @@ struct CustomTabBar: View {
     func fillIconImage(tab: Tab) -> String {
         switch tab {
         case .home:
-            return "house.circle.fill"
+            return "house.fill"
         case .setting:
-            return "gearshape.circle.fill"
-
+            return "person.fill"
         }
     }
     
@@ -58,31 +59,40 @@ struct CustomTabBar: View {
         HStack(spacing: 0) {
             Spacer()
             Button(action: {
+                print("홈눌림")
+                print(SAFEAREA_BOTTOM_HEIGHT())
                 tab = .home
             }){
-                Image(systemName: tab == .home ? fillIconImage(tab: self.tab) : "house.circle")
+                Image(systemName: tab == .home ? fillIconImage(tab: self.tab) : "house")
                     .resizable()
                     .scaledToFit()
-                    .tint(.timerIvory)
-                    .background(.ultraThinMaterial)
-                    .clipShape(Circle())
-                    .frame(height: 40)
+                    .tint(.timerBlue)
+                    .frame(height: 30)
                     .padding(20)
             }
             Spacer()
             Button(action: {
+                print("세팅눌림")
                 tab = .setting
             }){
-                Image(systemName: tab == .setting ? fillIconImage(tab: self.tab) : "gearshape.circle")
+                Image(systemName: tab == .setting ? fillIconImage(tab: self.tab) : "person")
                     .resizable()
                     .scaledToFit()
-                    .tint(.white)
-                    .background(.ultraThinMaterial)
-                    .clipShape(Circle())
-                    .frame(height: 40)
+                    .tint(.timerBlue)
+                    .frame(height: 30)
                     .padding(20)
             }
             Spacer()
         }
+        .padding(.bottom, SAFEAREA_BOTTOM_HEIGHT())
+        .frame(width: APP_WIDTH(), height: 56 + SAFEAREA_BOTTOM_HEIGHT())
+        .background(
+            Rectangle()
+                .foregroundStyle(.white)
+                .clipShape(TopRoundingCorner(corners: [.topLeft, .topRight], radius: 15))
+        )
+        .shadow(color: Color(.sRGBLinear, red: 0, green: 0, blue: 0, opacity: 0.12), radius: 7, x: 0, y: -3)
+        .mask(Rectangle().padding(.top, -20)) // 아래쪽 그림자를 없애기 위해
+        
     }
 }
