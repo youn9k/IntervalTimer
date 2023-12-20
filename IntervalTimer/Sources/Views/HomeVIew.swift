@@ -32,17 +32,30 @@ struct HomeView: View {
                 totalTimeView()
                 Spacer()
                 
-                LazyVGrid(columns: [GridItem(), GridItem()], spacing: 20) {
-                    ForEach(tempSetupWorkoutInfos) { info in
-                        Button(action: {
-                            print(APP_HEIGHT())
-                        }, label: {
-                            setupView(info: info)
-                        })
-                        .buttonStyle(ScaledButtonStyle())
-                        .frame(width: 170, height: 120)
+                VStack(spacing: 20) {
+                    HStack(spacing: 15) {
+                        ForEach(tempSetupWorkoutInfos[0..<2]) { info in
+                            Button(action: {
+                                print(APP_HEIGHT())
+                            }, label: {
+                                setupView(info: info)
+                            })
+                            .buttonStyle(ScaledButtonStyle())
+                            .frame(width: 170, height: 120)
+                        }
                     }
-                }
+                    HStack(spacing: 15) {
+                        ForEach(tempSetupWorkoutInfos[2...]) { info in
+                            Button(action: {
+                                print(APP_HEIGHT())
+                            }, label: {
+                                setupView(info: info)
+                            })
+                            .buttonStyle(ScaledButtonStyle())
+                            .frame(width: 170, height: 120)
+                        }
+                    }
+                }.padding(.horizontal, 20)
                 
                 VStack {
                     startButton()
@@ -127,7 +140,7 @@ struct HomeView: View {
                     }
                     .padding(.vertical, 10)
                     .padding(.horizontal, 20)
-                    .frame(width: size.width, height: size.height)
+                    .frame(height: size.height)
                 }
                 
             }
