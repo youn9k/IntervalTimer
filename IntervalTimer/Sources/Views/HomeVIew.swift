@@ -81,7 +81,7 @@ struct HomeView: View {
             RoundedRectangle(cornerRadius: 20)
                 .frame(height: 80)
                 .padding(.horizontal, 20)
-                .foregroundStyle(.green)
+                .foregroundStyle(LinearGradient(colors: [.indigo, .blue], startPoint: .topLeading, endPoint: .bottomTrailing))
                 .shadow(radius: 8)
                 .overlay {
                     Text("WORKOUT_START")

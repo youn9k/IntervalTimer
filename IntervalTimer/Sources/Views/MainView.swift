@@ -87,7 +87,7 @@ struct CustomTabBar: View {
         .background(
             Rectangle()
                 .foregroundStyle(.white)
-                .clipShape(TopRoundingCorner(corners: [.topLeft, .topRight], radius: 15))
+                .clipShape(CustomCorner(corners: [.topLeft, .topRight], radius: 15))
         )
         .shadow(color: Color(.sRGBLinear, red: 0, green: 0, blue: 0, opacity: 0.12), radius: 7, x: 0, y: -3)
         .mask(Rectangle().padding(.top, -20)) // 아래쪽 그림자를 없애기 위해

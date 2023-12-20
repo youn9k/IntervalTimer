@@ -25,7 +25,7 @@
 		7B40E85A2B2F05ED0062AEDE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7B40E85C2B2F05ED0062AEDE /* InfoPlist.strings */; };
 		7B40E8602B2F27F10062AEDE /* GlassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B40E85F2B2F27F10062AEDE /* GlassView.swift */; };
 		7B40E8622B2FD86E0062AEDE /* HomeVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B40E8612B2FD86E0062AEDE /* HomeVIew.swift */; };
-		7B40E8642B31E72D0062AEDE /* TopRoundingCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B40E8632B31E72D0062AEDE /* TopRoundingCorner.swift */; };
+		7B40E8642B31E72D0062AEDE /* CustomCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B40E8632B31E72D0062AEDE /* CustomCorner.swift */; };
 		7B40E8662B31ECBC0062AEDE /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B40E8652B31ECBC0062AEDE /* HomeViewModel.swift */; };
 		7B40E8682B31ED300062AEDE /* WorkoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B40E8672B31ED300062AEDE /* WorkoutViewModel.swift */; };
 		7B40E86B2B31EE0E0062AEDE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7B40E86D2B31EE0E0062AEDE /* Localizable.strings */; };
@@ -75,7 +75,7 @@
 		7B40E85E2B2F05F00062AEDE /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7B40E85F2B2F27F10062AEDE /* GlassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassView.swift; sourceTree = "<group>"; };
 		7B40E8612B2FD86E0062AEDE /* HomeVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVIew.swift; sourceTree = "<group>"; };
-		7B40E8632B31E72D0062AEDE /* TopRoundingCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRoundingCorner.swift; sourceTree = "<group>"; };
+		7B40E8632B31E72D0062AEDE /* CustomCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCorner.swift; sourceTree = "<group>"; };
 		7B40E8652B31ECBC0062AEDE /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		7B40E8672B31ED300062AEDE /* WorkoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewModel.swift; sourceTree = "<group>"; };
 		7B40E86C2B31EE0E0062AEDE /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -208,7 +208,7 @@
 				7B40E84C2B2E8CE90062AEDE /* GlassRemainingTImeView.swift */,
 				7B40E8502B2EE7DE0062AEDE /* GlassWorkoutInfoView.swift */,
 				7B40E85F2B2F27F10062AEDE /* GlassView.swift */,
-				7B40E8632B31E72D0062AEDE /* TopRoundingCorner.swift */,
+				7B40E8632B31E72D0062AEDE /* CustomCorner.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -364,7 +364,7 @@
 				7B40E8412B2D884E0062AEDE /* WorkoutView.swift in Sources */,
 				7B39B06B2B2D836D00825D33 /* IntervalTimerApp.swift in Sources */,
 				7B40E84B2B2E872C0062AEDE /* BackgroundColorView.swift in Sources */,
-				7B40E8642B31E72D0062AEDE /* TopRoundingCorner.swift in Sources */,
+				7B40E8642B31E72D0062AEDE /* CustomCorner.swift in Sources */,
 				7B40E8512B2EE7DE0062AEDE /* GlassWorkoutInfoView.swift in Sources */,
 				7B40E8662B31ECBC0062AEDE /* HomeViewModel.swift in Sources */,
 				7B40E8602B2F27F10062AEDE /* GlassView.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  TopRoundingCorner.swift
+//  CustomCorner.swift
 //  IntervalTimer
 //
 //  Created by YoungK on 12/19/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TopRoundingCorner: Shape {
+struct CustomCorner: Shape {
     var corners: UIRectCorner
     var radius: CGFloat
     func path(in rect: CGRect) -> Path {
