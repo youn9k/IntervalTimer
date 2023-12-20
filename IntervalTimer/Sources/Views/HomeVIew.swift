@@ -7,7 +7,23 @@
 
 import SwiftUI
 
+struct SetupWorkoutInfo: Identifiable {
+    var id = UUID()
+    var icon: String
+    var title: String
+    var time: String
+    var theme: Color
+}
+
 struct HomeView: View {
+    let tempSetupWorkoutInfos = [
+        SetupWorkoutInfo(icon: "arrow.counterclockwise.circle.fill", title: "NUM_OF_SETS", time: "5", theme: .timerGray),
+        SetupWorkoutInfo(icon: "figure.walk.circle.fill", title: "WARM_UP", time: "00:40", theme: .blue),
+        SetupWorkoutInfo(icon: "figure.run.circle.fill", title: "WORKOUT", time: "00:40", theme: .green),
+        SetupWorkoutInfo(icon: "pause.circle.fill", title: "REST", time: "00:20", theme: .yellow)
+    ]
+    
+    
     var body: some View {
         ZStack {
             BackgroundColorView(colors: [.timerMint, .timerBlue, .timerMint])
@@ -16,37 +32,22 @@ struct HomeView: View {
                 totalTimeView()
                 Spacer()
                 
-                VStack(spacing: 20) {
-                    HStack(spacing: 20) {
+                LazyVGrid(columns: [GridItem(), GridItem()], spacing: 20) {
+                    ForEach(tempSetupWorkoutInfos) { info in
                         Button(action: {
                             print(APP_HEIGHT())
                         }, label: {
-                            setupView(icon: "arrow.counterclockwise.circle.fill", title: "NUM_OF_SETS", time: "5", color: .timerGray)
-                        }).frame(width: 170, height: 120)
-                        
-                        Button(action: {
-                            
-                        }, label: {
-                            setupView(icon: "figure.walk.circle.fill", title: "WARM_UP", time: "00:40", color: .blue)
-                        }).frame(width: 170, height: 120)
+                            setupView(info: info)
+                        })
+                        .buttonStyle(ScaledButtonStyle())
+                        .frame(width: 170, height: 120)
                     }
-                    
-                    HStack(spacing: 20) {
-                        Button(action: {
-                            
-                        }, label: {
-                            setupView(icon: "figure.run.circle.fill", title: "WORKOUT", time: "00:40", color: .green)
-                        }).frame(width: 170, height: 120)
-                        
-                        Button(action: {
-                            
-                        }, label: {
-                            setupView(icon: "pause.circle.fill", title: "REST", time: "00:20", color: .yellow)
-                        }).frame(width: 170, height: 120)
-                    }
-                    
+                }
+                
+                VStack {
                     startButton()
                         .padding(.top, 10)
+                        .padding(.bottom, 20)
                     
                     Spacer().frame(height: 56 + SAFEAREA_BOTTOM_HEIGHT())
                 }
@@ -91,9 +92,10 @@ struct HomeView: View {
                         .foregroundStyle(.white)
                 }
         })
+        .buttonStyle(ScaledButtonStyle())
     }
     
-    func setupView(icon: String, title: String, time: String, color: Color) -> some View {
+    func setupView(info: SetupWorkoutInfo) -> some View {
         RoundedRectangle(cornerRadius: 20)
             .foregroundStyle(.white)
             .shadow(radius: 8)
@@ -102,24 +104,24 @@ struct HomeView: View {
                     let size = proxy.size
                     VStack {
                         HStack {
-                            Text(LocalizedStringKey(title))
+                            Text(LocalizedStringKey(info.title))
                                 .font(.TimerFont.bold(size: 16))
                                 .kerning(-0.75)
                                 .foregroundStyle(.gray)
                             
                             Spacer()
                             
-                            Image(systemName: icon)
+                            Image(systemName: info.icon)
                                 .resizable()
                                 .frame(width: 28, height: 28)
-                                .foregroundStyle(color)
+                                .foregroundStyle(info.theme)
                         }
                         
-                        Text(time)
+                        Text(info.time)
                             .font(.TimerFont.bold(size: 36))
                             .fontWeight(.semibold)
                             .kerning(-0.75)
-                            .foregroundStyle(color)
+                            .foregroundStyle(info.theme)
                         
                         Spacer()
                     }
@@ -134,7 +136,13 @@ struct HomeView: View {
 }
 
 #Preview {
-    
     MainView()
-    
+}
+
+struct ScaledButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .scaleEffect(configuration.isPressed ? 0.85 : 1)
+            .animation(.easeInOut, value: configuration.isPressed)
+    }
 }
