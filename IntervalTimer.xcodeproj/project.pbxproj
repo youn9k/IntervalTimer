@@ -29,6 +29,7 @@
 		7B40E8662B31ECBC0062AEDE /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B40E8652B31ECBC0062AEDE /* HomeViewModel.swift */; };
 		7B40E8682B31ED300062AEDE /* WorkoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B40E8672B31ED300062AEDE /* WorkoutViewModel.swift */; };
 		7B40E86B2B31EE0E0062AEDE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7B40E86D2B31EE0E0062AEDE /* Localizable.strings */; };
+		7BAEB1002B3440050049E9A5 /* SetupWorkoutType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAEB0FF2B3440050049E9A5 /* SetupWorkoutType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		7B40E86C2B31EE0E0062AEDE /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7B40E86E2B31EE0F0062AEDE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7B40E86F2B31EE0F0062AEDE /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7BAEB0FF2B3440050049E9A5 /* SetupWorkoutType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupWorkoutType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +168,7 @@
 		7B40E83A2B2D85010062AEDE /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				7BAEB0FE2B343FF80049E9A5 /* Models */,
 				7B39B06A2B2D836D00825D33 /* IntervalTimerApp.swift */,
 				7B40E8422B2DC5500062AEDE /* Utils.swift */,
 				7B40E8482B2DC7950062AEDE /* Font.swift */,
@@ -220,6 +223,14 @@
 				7B40E8652B31ECBC0062AEDE /* HomeViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		7BAEB0FE2B343FF80049E9A5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7BAEB0FF2B3440050049E9A5 /* SetupWorkoutType.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -365,6 +376,7 @@
 				7B39B06B2B2D836D00825D33 /* IntervalTimerApp.swift in Sources */,
 				7B40E84B2B2E872C0062AEDE /* BackgroundColorView.swift in Sources */,
 				7B40E8642B31E72D0062AEDE /* CustomCorner.swift in Sources */,
+				7BAEB1002B3440050049E9A5 /* SetupWorkoutType.swift in Sources */,
 				7B40E8512B2EE7DE0062AEDE /* GlassWorkoutInfoView.swift in Sources */,
 				7B40E8662B31ECBC0062AEDE /* HomeViewModel.swift in Sources */,
 				7B40E8602B2F27F10062AEDE /* GlassView.swift in Sources */,

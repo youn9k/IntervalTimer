@@ -7,29 +7,12 @@
 
 import SwiftUI
 
-struct SetupWorkoutInfo: Identifiable {
-    var id = UUID()
-    var icon: String
-    var title: String
-    var time: String
-    var theme: Color
-}
-
 struct HomeView: View {
-    let tempSetupWorkoutInfos = [
-        SetupWorkoutInfo(icon: "arrow.counterclockwise.circle.fill", title: "NUM_OF_SETS", time: "5", theme: .timerGray),
-        SetupWorkoutInfo(icon: "figure.walk.circle.fill", title: "WARM_UP", time: "00:40", theme: .blue),
-        SetupWorkoutInfo(icon: "figure.run.circle.fill", title: "WORKOUT", time: "00:40", theme: .green),
-        SetupWorkoutInfo(icon: "pause.circle.fill", title: "REST", time: "00:20", theme: .yellow)
-    ]
+    @StateObject var viewModel: HomeViewModel = HomeViewModel()
     
-    @State var selectedSetupWorkoutInfo: SetupWorkoutInfo?
-    @State var showDetailPage: Bool = false
-    @State private var selectedMinute = 0
-    @State private var selectedSecond = 30
-    @State private var selectedCountOfSets = 1
     @Namespace var animation
-    
+    @State var selectedSetupWorkoutType: SetupWorkoutType?
+    @State var showDetailPage: Bool = false
     @State var animateDetailView: Bool = false
     @State var animateDetailViewContent: Bool = false
     @State var animateDetailViewBackground: Bool = false
@@ -44,38 +27,64 @@ struct HomeView: View {
                 
                 VStack(spacing: 20) {
                     HStack(spacing: 15) {
-                        ForEach(tempSetupWorkoutInfos[0..<2]) { info in
-                            Button(action: {
-                                withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 0.7, blendDuration: 0.25)) {
-                                    selectedSetupWorkoutInfo = info
-                                    showDetailPage = true
-                                }
-                            }, label: {
-                                cardView(info: info)
-                                    .scaleEffect(selectedSetupWorkoutInfo?.id == info.id && showDetailPage ? 1.2 : 1)
-                                    .opacity(selectedSetupWorkoutInfo?.id == info.id && showDetailPage ? 0.2 : 1)
-                            })
-                            .buttonStyle(ScaledButtonStyle())
-                            .opacity(showDetailPage ? (selectedSetupWorkoutInfo?.id == info.id ? 1 : 0) : 1)
-                            .frame(width: 170, height: 120)
-                        }
+                        Button(action: {
+                            withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 0.7, blendDuration: 0.25)) {
+                                selectedSetupWorkoutType = .sets
+                                showDetailPage = true
+                            }
+                        }, label: {
+                            cardView(type: .sets)
+                                .scaleEffect(selectedSetupWorkoutType == .sets && showDetailPage ? 1.2 : 1)
+                                .opacity(selectedSetupWorkoutType == .sets && showDetailPage ? 0.2 : 1)
+                        })
+                        .buttonStyle(ScaledButtonStyle())
+                        .opacity(showDetailPage ? (selectedSetupWorkoutType == .sets ? 1 : 0) : 1)
+                        .frame(width: 170, height: 120)
+                        
+                        Button(action: {
+                            withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 0.7, blendDuration: 0.25)) {
+                                selectedSetupWorkoutType = .warmup
+                                showDetailPage = true
+                            }
+                        }, label: {
+                            cardView(type: .warmup)
+                                .scaleEffect(selectedSetupWorkoutType == .warmup && showDetailPage ? 1.2 : 1)
+                                .opacity(selectedSetupWorkoutType == .warmup && showDetailPage ? 0.2 : 1)
+                        })
+                        .buttonStyle(ScaledButtonStyle())
+                        .opacity(showDetailPage ? (selectedSetupWorkoutType == .warmup ? 1 : 0) : 1)
+                        .frame(width: 170, height: 120)
+                        
                     }
                     HStack(spacing: 15) {
-                        ForEach(tempSetupWorkoutInfos[2...]) { info in
-                            Button(action: {
-                                withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 0.7, blendDuration: 0.25)) {
-                                    selectedSetupWorkoutInfo = info
-                                    showDetailPage = true
-                                }
-                            }, label: {
-                                cardView(info: info)
-                                    .scaleEffect(selectedSetupWorkoutInfo?.id == info.id && showDetailPage ? 1.2 : 1)
-                                    .opacity(selectedSetupWorkoutInfo?.id == info.id && showDetailPage ? 0.2 : 1)
-                            })
-                            .buttonStyle(ScaledButtonStyle())
-                            .opacity(showDetailPage ? (selectedSetupWorkoutInfo?.id == info.id ? 1 : 0) : 1)
-                            .frame(width: 170, height: 120)
-                        }
+                        Button(action: {
+                            withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 0.7, blendDuration: 0.25)) {
+                                selectedSetupWorkoutType = .workout
+                                showDetailPage = true
+                            }
+                        }, label: {
+                            cardView(type: .workout)
+                                .scaleEffect(selectedSetupWorkoutType == .workout && showDetailPage ? 1.2 : 1)
+                                .opacity(selectedSetupWorkoutType == .workout && showDetailPage ? 0.2 : 1)
+                        })
+                        .buttonStyle(ScaledButtonStyle())
+                        .opacity(showDetailPage ? (selectedSetupWorkoutType == .workout ? 1 : 0) : 1)
+                        .frame(width: 170, height: 120)
+                        
+                        Button(action: {
+                            withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 0.7, blendDuration: 0.25)) {
+                                selectedSetupWorkoutType = .rest
+                                showDetailPage = true
+                            }
+                        }, label: {
+                            cardView(type: .rest)
+                                .scaleEffect(selectedSetupWorkoutType == .rest && showDetailPage ? 1.2 : 1)
+                                .opacity(selectedSetupWorkoutType == .rest && showDetailPage ? 0.2 : 1)
+                        })
+                        .buttonStyle(ScaledButtonStyle())
+                        .opacity(showDetailPage ? (selectedSetupWorkoutType == .rest ? 1 : 0) : 1)
+                        .frame(width: 170, height: 120)
+                        
                     }
                 }
                 .padding(.horizontal, 20)
@@ -90,8 +99,8 @@ struct HomeView: View {
                 }
             }
             
-            if let selectedSetupWorkoutInfo, showDetailPage {
-                setupDetailView(info: selectedSetupWorkoutInfo)
+            if let selectedSetupWorkoutType, showDetailPage {
+                setupDetailView(type: selectedSetupWorkoutType)
                     .frame(width: APP_WIDTH())
                     .ignoresSafeArea()
             }
@@ -111,7 +120,7 @@ struct HomeView: View {
                 .kerning(-1.5)
                 .opacity(0.8)
             
-            Text("18:40")
+            Text(viewModel.totalTimeText)
                 .font(.TimerFont.bold(size: 80))
                 .foregroundStyle(.white)
                 .kerning(-1.5)
@@ -140,43 +149,46 @@ struct HomeView: View {
         .buttonStyle(ScaledButtonStyle())
     }
     
-    func cardView(info: SetupWorkoutInfo) -> some View {
+    func cardView(type: SetupWorkoutType) -> some View {
         VStack {
-            if selectedSetupWorkoutInfo?.id == info.id && showDetailPage {
+            if selectedSetupWorkoutType?.title == type.title && showDetailPage {
                 HStack {
-                    Text(LocalizedStringKey(info.title))
+                    Text(LocalizedStringKey(type.title))
                         .font(.TimerFont.bold(size: 16))
                         .kerning(-0.75)
-                        .foregroundStyle(selectedSetupWorkoutInfo?.id == info.id && showDetailPage ? .white : .gray)
+                        .foregroundStyle(selectedSetupWorkoutType?.title == type.title && showDetailPage ? .white : .gray)
                     
-                    Image(systemName: info.icon)
+                    Image(systemName: type.icon)
                         .resizable()
                         .frame(width: 28, height: 28)
-                        .foregroundStyle(selectedSetupWorkoutInfo?.id == info.id && showDetailPage ? .white : info.theme)
+                        .foregroundStyle(selectedSetupWorkoutType?.title == type.title && showDetailPage ? .white : type.theme)
                     
                     Spacer()
                 }
             } else {
                 HStack {
-                    Text(LocalizedStringKey(info.title))
+                    Text(LocalizedStringKey(type.title))
                         .font(.TimerFont.bold(size: 16))
                         .kerning(-0.75)
-                        .foregroundStyle(selectedSetupWorkoutInfo?.id == info.id && showDetailPage ? .white : .gray)
+                        .foregroundStyle(selectedSetupWorkoutType?.title == type.title && showDetailPage ? .white : .gray)
                     
                     Spacer()
                     
-                    Image(systemName: info.icon)
+                    Image(systemName: type.icon)
                         .resizable()
                         .frame(width: 28, height: 28)
-                        .foregroundStyle(selectedSetupWorkoutInfo?.id == info.id && showDetailPage ? .white : info.theme)
+                        .foregroundStyle(selectedSetupWorkoutType?.title == type.title && showDetailPage ? .white : type.theme)
                 }
             }
             
-            Text(info.time)
-                .font(.TimerFont.bold(size: selectedSetupWorkoutInfo?.id == info.id && showDetailPage ? 80 : 36))
+            Text(type == .sets ? viewModel.countOfSetsText :
+                 type == .warmup ? viewModel.timeOfWarmupText :
+                 type == .workout ? viewModel.timeOfWorkoutText :
+                 type == .rest ? viewModel.timeOfRestText : "")
+                .font(.TimerFont.bold(size: selectedSetupWorkoutType?.title == type.title && showDetailPage ? 80 : 36))
                 .fontWeight(.semibold)
                 .kerning(-0.75)
-                .foregroundStyle(showDetailPage ? .white : info.theme)
+                .foregroundStyle(showDetailPage ? .white : type.theme)
         }
         .padding(.top, 10)
         .padding(.horizontal, 20)
@@ -189,13 +201,13 @@ struct HomeView: View {
             }
             
         }
-        .matchedGeometryEffect(id: info.id, in: animation)
+        .matchedGeometryEffect(id: type.title, in: animation)
     }
     
-    func setupDetailView(info: SetupWorkoutInfo) -> some View {
+    func setupDetailView(type: SetupWorkoutType) -> some View {
         VStack {
             Spacer().frame(height: STATUS_BAR_HEIGHT())
-            cardView(info: info)
+            cardView(type: type)
                 .scaleEffect(animateDetailView ? 1 : 0.94)
             Spacer().frame(height: 40)
             
@@ -217,9 +229,10 @@ struct HomeView: View {
                 
                 Spacer().frame(height: 50)
                 
-                if info.title == "NUM_OF_SETS" {
-                    Picker("SetCount", selection: $selectedCountOfSets) {
-                        ForEach(0..<11) { count in
+                switch type {
+                case .sets:
+                    Picker("SetCount", selection: $viewModel.selectedCountOfSets) {
+                        ForEach(type.setsAllCase, id: \.self) { count in
                             HStack(spacing: 20) {
                                 Text("\(count)")
                                 Text(LocalizedStringKey("SETS"))
@@ -230,10 +243,10 @@ struct HomeView: View {
                         }
                     }
                     .pickerStyle(WheelPickerStyle())
-                } else {
+                case .warmup:
                     HStack(spacing: 0) {
-                        Picker("Minute", selection: $selectedMinute) {
-                            ForEach(0..<30) { minute in
+                        Picker("Minute", selection: $viewModel.selectedMinOfWarmup) {
+                            ForEach(type.minAllCase, id: \.self) { minute in
                                 HStack(spacing: 20) {
                                     Text("\(minute)")
                                     Text(LocalizedStringKey("MINUTE"))
@@ -250,9 +263,74 @@ struct HomeView: View {
                             .fontWeight(.bold)
                             .foregroundStyle(Color.white)
                         
-                        Picker("Second", selection: $selectedSecond) {
-                            ForEach(0..<12) { index in
-                                let second = index * 5
+                        Picker("Second", selection: $viewModel.selectedSecOfWarmup) {
+                            ForEach(type.secAllCase, id: \.self) { second in
+                                HStack(spacing: 20) {
+                                    Text("\(second)")
+                                    Text(LocalizedStringKey("SECONDS"))
+                                }
+                                .font(.TimerFont.bold(size: 30))
+                                .fontWeight(.bold)
+                                .foregroundStyle(Color.white)
+                            }
+                        }
+                        .pickerStyle(WheelPickerStyle())
+                    }
+                case .workout:
+                    HStack(spacing: 0) {
+                        Picker("Minute", selection: $viewModel.selectedMinOfWorkout) {
+                            ForEach(type.minAllCase, id: \.self) { minute in
+                                HStack(spacing: 20) {
+                                    Text("\(minute)")
+                                    Text(LocalizedStringKey("MINUTE"))
+                                }
+                                .font(.TimerFont.bold(size: 30))
+                                .fontWeight(.bold)
+                                .foregroundStyle(Color.white)
+                            }
+                        }
+                        .pickerStyle(WheelPickerStyle())
+                        
+                        Text(":")
+                            .font(.TimerFont.bold(size: 50))
+                            .fontWeight(.bold)
+                            .foregroundStyle(Color.white)
+                        
+                        Picker("Second", selection: $viewModel.selectedSecOfWorkout) {
+                            ForEach(type.secAllCase, id: \.self) { second in
+                                HStack(spacing: 20) {
+                                    Text("\(second)")
+                                    Text(LocalizedStringKey("SECONDS"))
+                                }
+                                .font(.TimerFont.bold(size: 30))
+                                .fontWeight(.bold)
+                                .foregroundStyle(Color.white)
+                            }
+                        }
+                        .pickerStyle(WheelPickerStyle())
+                    }
+                case .rest:
+                    HStack(spacing: 0) {
+                        Picker("Minute", selection: $viewModel.selectedMinOfRest) {
+                            ForEach(type.minAllCase, id: \.self) { minute in
+                                HStack(spacing: 20) {
+                                    Text("\(minute)")
+                                    Text(LocalizedStringKey("MINUTE"))
+                                }
+                                .font(.TimerFont.bold(size: 30))
+                                .fontWeight(.bold)
+                                .foregroundStyle(Color.white)
+                            }
+                        }
+                        .pickerStyle(WheelPickerStyle())
+                        
+                        Text(":")
+                            .font(.TimerFont.bold(size: 50))
+                            .fontWeight(.bold)
+                            .foregroundStyle(Color.white)
+                        
+                        Picker("Second", selection: $viewModel.selectedSecOfRest) {
+                            ForEach(type.secAllCase, id: \.self) { second in
                                 HStack(spacing: 20) {
                                     Text("\(second)")
                                     Text(LocalizedStringKey("SECONDS"))
@@ -265,17 +343,69 @@ struct HomeView: View {
                         .pickerStyle(WheelPickerStyle())
                     }
                 }
+                
+                
+//                if type.title == "NUM_OF_SETS" {
+//                    Picker("SetCount", selection: viewModel.$selectedCountOfSets) {
+//                        ForEach(0..<11) { count in
+//                            HStack(spacing: 20) {
+//                                Text("\(count)")
+//                                Text(LocalizedStringKey("SETS"))
+//                            }
+//                            .font(.TimerFont.bold(size: 30))
+//                            .fontWeight(.bold)
+//                            .foregroundStyle(Color.white)
+//                        }
+//                    }
+//                    .pickerStyle(WheelPickerStyle())
+//                } else {
+//                    HStack(spacing: 0) {
+//                        Picker("Minute", selection: $selectedMinute) {
+//                            ForEach(0..<30) { minute in
+//                                HStack(spacing: 20) {
+//                                    Text("\(minute)")
+//                                    Text(LocalizedStringKey("MINUTE"))
+//                                }
+//                                .font(.TimerFont.bold(size: 30))
+//                                .fontWeight(.bold)
+//                                .foregroundStyle(Color.white)
+//                            }
+//                        }
+//                        .pickerStyle(WheelPickerStyle())
+//                        
+//                        Text(":")
+//                            .font(.TimerFont.bold(size: 50))
+//                            .fontWeight(.bold)
+//                            .foregroundStyle(Color.white)
+//                        
+//                        Picker("Second", selection: $selectedSecond) {
+//                            ForEach(0..<12) { index in
+//                                let second = index * 5
+//                                HStack(spacing: 20) {
+//                                    Text("\(second)")
+//                                    Text(LocalizedStringKey("SECONDS"))
+//                                }
+//                                .font(.TimerFont.bold(size: 30))
+//                                .fontWeight(.bold)
+//                                .foregroundStyle(Color.white)
+//                            }
+//                        }
+//                        .pickerStyle(WheelPickerStyle())
+//                    }
+//                }
+                
+                
                 Spacer()
             }
             .opacity(animateDetailViewContent ? 1: 0)
             .scaleEffect(animateDetailViewContent ? 1 : 0, anchor: .top)
-            
-            
         }
-        .background {
-            info.theme
-                .scaleEffect(animateDetailViewBackground ? 1 : 0)
-        }
+        .background(content: {
+            type.theme.scaleEffect(animateDetailViewBackground ? 1 : 0)
+        })
+//        .background {
+//            type.theme.scaleEffect(animateDetailViewBackground ? 1 : 0)
+//        }
         .opacity(animateDetailView ? 1 : 0)
         .scaleEffect(animateDetailView ? 1 : 0.94)
         .onAppear {
@@ -289,7 +419,7 @@ struct HomeView: View {
         }
         .onTapGesture {
             withAnimation(.interactiveSpring(response: 0.3, dampingFraction: 0.7, blendDuration: 0.25)) {
-                selectedSetupWorkoutInfo = nil
+                selectedSetupWorkoutType = nil
                 showDetailPage = false
                 animateDetailView = false
                 animateDetailViewContent = false
