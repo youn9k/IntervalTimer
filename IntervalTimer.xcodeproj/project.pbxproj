@@ -30,6 +30,7 @@
 		7B40E8682B31ED300062AEDE /* WorkoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B40E8672B31ED300062AEDE /* WorkoutViewModel.swift */; };
 		7B40E86B2B31EE0E0062AEDE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7B40E86D2B31EE0E0062AEDE /* Localizable.strings */; };
 		7BAEB1002B3440050049E9A5 /* SetupWorkoutType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAEB0FF2B3440050049E9A5 /* SetupWorkoutType.swift */; };
+		7BAEB1072B46993F0049E9A5 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAEB1062B46993F0049E9A5 /* Time.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		7B40E86E2B31EE0F0062AEDE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7B40E86F2B31EE0F0062AEDE /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7BAEB0FF2B3440050049E9A5 /* SetupWorkoutType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupWorkoutType.swift; sourceTree = "<group>"; };
+		7BAEB1062B46993F0049E9A5 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,9 +170,9 @@
 		7B40E83A2B2D85010062AEDE /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				7BAEB0FE2B343FF80049E9A5 /* Models */,
 				7B39B06A2B2D836D00825D33 /* IntervalTimerApp.swift */,
-				7B40E8422B2DC5500062AEDE /* Utils.swift */,
+				7BAEB1052B468F4B0049E9A5 /* Utilities */,
+				7BAEB0FE2B343FF80049E9A5 /* Models */,
 				7B40E8482B2DC7950062AEDE /* Font.swift */,
 				7B40E8552B2F001C0062AEDE /* ViewModels */,
 				7B40E8542B2F00150062AEDE /* Views */,
@@ -202,16 +204,11 @@
 		7B40E8542B2F00150062AEDE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7BAEB1042B468D270049E9A5 /* Components */,
 				7B39B06C2B2D836D00825D33 /* ContentView.swift */,
 				7B40E83E2B2D87F90062AEDE /* MainView.swift */,
 				7B40E8612B2FD86E0062AEDE /* HomeVIew.swift */,
 				7B40E8402B2D884E0062AEDE /* WorkoutView.swift */,
-				7B40E84A2B2E872C0062AEDE /* BackgroundColorView.swift */,
-				7B40E8522B2EF0060062AEDE /* CarouselView.swift */,
-				7B40E84C2B2E8CE90062AEDE /* GlassRemainingTImeView.swift */,
-				7B40E8502B2EE7DE0062AEDE /* GlassWorkoutInfoView.swift */,
-				7B40E85F2B2F27F10062AEDE /* GlassView.swift */,
-				7B40E8632B31E72D0062AEDE /* CustomCorner.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -229,8 +226,30 @@
 			isa = PBXGroup;
 			children = (
 				7BAEB0FF2B3440050049E9A5 /* SetupWorkoutType.swift */,
+				7BAEB1062B46993F0049E9A5 /* Time.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		7BAEB1042B468D270049E9A5 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				7B40E84A2B2E872C0062AEDE /* BackgroundColorView.swift */,
+				7B40E8522B2EF0060062AEDE /* CarouselView.swift */,
+				7B40E84C2B2E8CE90062AEDE /* GlassRemainingTImeView.swift */,
+				7B40E8502B2EE7DE0062AEDE /* GlassWorkoutInfoView.swift */,
+				7B40E85F2B2F27F10062AEDE /* GlassView.swift */,
+				7B40E8632B31E72D0062AEDE /* CustomCorner.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		7BAEB1052B468F4B0049E9A5 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				7B40E8422B2DC5500062AEDE /* Utils.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -372,6 +391,7 @@
 				7B39B06D2B2D836D00825D33 /* ContentView.swift in Sources */,
 				7B40E83F2B2D87F90062AEDE /* MainView.swift in Sources */,
 				7B40E8682B31ED300062AEDE /* WorkoutViewModel.swift in Sources */,
+				7BAEB1072B46993F0049E9A5 /* Time.swift in Sources */,
 				7B40E8412B2D884E0062AEDE /* WorkoutView.swift in Sources */,
 				7B39B06B2B2D836D00825D33 /* IntervalTimerApp.swift in Sources */,
 				7B40E84B2B2E872C0062AEDE /* BackgroundColorView.swift in Sources */,

@@ -120,7 +120,7 @@ struct HomeView: View {
                 .kerning(-1.5)
                 .opacity(0.8)
             
-            Text(viewModel.totalTimeText)
+            Text(viewModel.totalTime.display)
                 .font(.TimerFont.bold(size: 80))
                 .foregroundStyle(.white)
                 .kerning(-1.5)
@@ -181,10 +181,10 @@ struct HomeView: View {
                 }
             }
             
-            Text(type == .sets ? viewModel.countOfSetsText :
-                 type == .warmup ? viewModel.timeOfWarmupText :
-                 type == .workout ? viewModel.timeOfWorkoutText :
-                 type == .rest ? viewModel.timeOfRestText : "")
+            Text(type == .sets ? String(viewModel.countOfSets) :
+                    type == .warmup ? viewModel.timeOfWarmup.display :
+                    type == .workout ? viewModel.timeOfWorkout.display :
+                    type == .rest ? viewModel.timeOfRest.display : "")
                 .font(.TimerFont.bold(size: selectedSetupWorkoutType?.title == type.title && showDetailPage ? 80 : 36))
                 .fontWeight(.semibold)
                 .kerning(-0.75)
@@ -231,7 +231,7 @@ struct HomeView: View {
                 
                 switch type {
                 case .sets:
-                    Picker("SetCount", selection: $viewModel.selectedCountOfSets) {
+                    Picker("SetCount", selection: $viewModel.countOfSets) {
                         ForEach(type.setsAllCase, id: \.self) { count in
                             HStack(spacing: 20) {
                                 Text("\(count)")
@@ -245,7 +245,7 @@ struct HomeView: View {
                     .pickerStyle(WheelPickerStyle())
                 case .warmup:
                     HStack(spacing: 0) {
-                        Picker("Minute", selection: $viewModel.selectedMinOfWarmup) {
+                        Picker("Minute", selection: $viewModel.timeOfWarmup.minutes) {
                             ForEach(type.minAllCase, id: \.self) { minute in
                                 HStack(spacing: 20) {
                                     Text("\(minute)")
@@ -263,7 +263,7 @@ struct HomeView: View {
                             .fontWeight(.bold)
                             .foregroundStyle(Color.white)
                         
-                        Picker("Second", selection: $viewModel.selectedSecOfWarmup) {
+                        Picker("Second", selection: $viewModel.timeOfWarmup.seconds) {
                             ForEach(type.secAllCase, id: \.self) { second in
                                 HStack(spacing: 20) {
                                     Text("\(second)")
@@ -278,7 +278,7 @@ struct HomeView: View {
                     }
                 case .workout:
                     HStack(spacing: 0) {
-                        Picker("Minute", selection: $viewModel.selectedMinOfWorkout) {
+                        Picker("Minute", selection: $viewModel.timeOfWorkout.minutes) {
                             ForEach(type.minAllCase, id: \.self) { minute in
                                 HStack(spacing: 20) {
                                     Text("\(minute)")
@@ -296,7 +296,7 @@ struct HomeView: View {
                             .fontWeight(.bold)
                             .foregroundStyle(Color.white)
                         
-                        Picker("Second", selection: $viewModel.selectedSecOfWorkout) {
+                        Picker("Second", selection: $viewModel.timeOfWorkout.seconds) {
                             ForEach(type.secAllCase, id: \.self) { second in
                                 HStack(spacing: 20) {
                                     Text("\(second)")
@@ -311,7 +311,7 @@ struct HomeView: View {
                     }
                 case .rest:
                     HStack(spacing: 0) {
-                        Picker("Minute", selection: $viewModel.selectedMinOfRest) {
+                        Picker("Minute", selection: $viewModel.timeOfRest.minutes) {
                             ForEach(type.minAllCase, id: \.self) { minute in
                                 HStack(spacing: 20) {
                                     Text("\(minute)")
@@ -329,7 +329,7 @@ struct HomeView: View {
                             .fontWeight(.bold)
                             .foregroundStyle(Color.white)
                         
-                        Picker("Second", selection: $viewModel.selectedSecOfRest) {
+                        Picker("Second", selection: $viewModel.timeOfRest.seconds) {
                             ForEach(type.secAllCase, id: \.self) { second in
                                 HStack(spacing: 20) {
                                     Text("\(second)")
@@ -345,67 +345,14 @@ struct HomeView: View {
                 }
                 
                 
-//                if type.title == "NUM_OF_SETS" {
-//                    Picker("SetCount", selection: viewModel.$selectedCountOfSets) {
-//                        ForEach(0..<11) { count in
-//                            HStack(spacing: 20) {
-//                                Text("\(count)")
-//                                Text(LocalizedStringKey("SETS"))
-//                            }
-//                            .font(.TimerFont.bold(size: 30))
-//                            .fontWeight(.bold)
-//                            .foregroundStyle(Color.white)
-//                        }
-//                    }
-//                    .pickerStyle(WheelPickerStyle())
-//                } else {
-//                    HStack(spacing: 0) {
-//                        Picker("Minute", selection: $selectedMinute) {
-//                            ForEach(0..<30) { minute in
-//                                HStack(spacing: 20) {
-//                                    Text("\(minute)")
-//                                    Text(LocalizedStringKey("MINUTE"))
-//                                }
-//                                .font(.TimerFont.bold(size: 30))
-//                                .fontWeight(.bold)
-//                                .foregroundStyle(Color.white)
-//                            }
-//                        }
-//                        .pickerStyle(WheelPickerStyle())
-//                        
-//                        Text(":")
-//                            .font(.TimerFont.bold(size: 50))
-//                            .fontWeight(.bold)
-//                            .foregroundStyle(Color.white)
-//                        
-//                        Picker("Second", selection: $selectedSecond) {
-//                            ForEach(0..<12) { index in
-//                                let second = index * 5
-//                                HStack(spacing: 20) {
-//                                    Text("\(second)")
-//                                    Text(LocalizedStringKey("SECONDS"))
-//                                }
-//                                .font(.TimerFont.bold(size: 30))
-//                                .fontWeight(.bold)
-//                                .foregroundStyle(Color.white)
-//                            }
-//                        }
-//                        .pickerStyle(WheelPickerStyle())
-//                    }
-//                }
-                
-                
                 Spacer()
             }
             .opacity(animateDetailViewContent ? 1: 0)
             .scaleEffect(animateDetailViewContent ? 1 : 0, anchor: .top)
         }
-        .background(content: {
+        .background {
             type.theme.scaleEffect(animateDetailViewBackground ? 1 : 0)
-        })
-//        .background {
-//            type.theme.scaleEffect(animateDetailViewBackground ? 1 : 0)
-//        }
+        }
         .opacity(animateDetailView ? 1 : 0)
         .scaleEffect(animateDetailView ? 1 : 0.94)
         .onAppear {

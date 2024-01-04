@@ -13,11 +13,11 @@ public protocol HomeViewModelInput {
 }
 
 public protocol HomeViewModelOutput {
-    var totalTimeText: String { get }
-    var countOfSetsText: String { get }
-    var timeOfWarmupText: String { get }
-    var timeOfWorkoutText: String { get }
-    var timeOfRestText: String { get }
+    var countOfSets: Int { get }
+    var timeOfWarmup: Time { get }
+    var timeOfWorkout: Time { get }
+    var timeOfRest: Time { get }
+    var totalTime: Time { get }
 }
 
 typealias HomeViewModelType = HomeViewModelInput & HomeViewModelOutput
@@ -25,21 +25,11 @@ typealias HomeViewModelType = HomeViewModelInput & HomeViewModelOutput
 final class HomeViewModel: ObservableObject, HomeViewModelType {
     private var subscription = Set<AnyCancellable>()
     
-    // input
-    @Published var selectedCountOfSets: Int = 1
-    @Published var selectedMinOfWarmup: Int = 0
-    @Published var selectedSecOfWarmup: Int = 40
-    @Published var selectedMinOfWorkout: Int = 0
-    @Published var selectedSecOfWorkout: Int = 40
-    @Published var selectedMinOfRest = 0
-    @Published var selectedSecOfRest = 20
-    
-    // output
-    @Published var totalTimeText = "00:00"
-    @Published var countOfSetsText = "0"
-    @Published var timeOfWarmupText = "00:00"
-    @Published var timeOfWorkoutText = "00:00"
-    @Published var timeOfRestText = "00:00"
+    @Published var countOfSets: Int = 1
+    @Published var timeOfWarmup: Time = .init(minutes: 0, seconds: 40)
+    @Published var timeOfWorkout: Time = .init(minutes: 0, seconds: 40)
+    @Published var timeOfRest: Time = .init(minutes: 0, seconds: 20)
+    @Published var totalTime: Time = .init(minutes: 0, seconds: 0)
     
     
     init() {
@@ -52,66 +42,34 @@ final class HomeViewModel: ObservableObject, HomeViewModelType {
     }
     
     private func bindInput() {
-        $selectedCountOfSets.sink { [weak self] count in
-            guard let self else { return }
-            let text = String(count)
-            self.countOfSetsText = text
-            
-            let totalTime = calculateTotalTime(count: selectedCountOfSets,
-                                               warmup: seconds(min: selectedMinOfWarmup, sec: selectedSecOfWarmup),
-                                               workout: seconds(min: selectedMinOfWorkout, sec: selectedSecOfWorkout),
-                                               rest: seconds(min: selectedMinOfRest, sec: selectedSecOfRest))
-            self.totalTimeText = totalTime.toTimeFormat()
-        }.store(in: &subscription)
+        let calculateAndFormatTotalTime: () -> Void = {
+            let total = self.calculateTotalTime(
+                count: self.countOfSets,
+                warmup: self.timeOfWarmup.toSeconds(),
+                workout: self.timeOfWorkout.toSeconds(),
+                rest: self.timeOfRest.toSeconds()
+            )
+            self.totalTime = total
+        }
         
-        Publishers.CombineLatest($selectedMinOfWarmup, $selectedSecOfWarmup).sink { [weak self] (min, sec) in
-            guard let self else { return }
-            timeOfWarmupText = seconds(min: min, sec: sec).toTimeFormat()
-            
-            let totalTime = calculateTotalTime(count: selectedCountOfSets,
-                                               warmup: seconds(min: selectedMinOfWarmup, sec: selectedSecOfWarmup),
-                                               workout: seconds(min: selectedMinOfWorkout, sec: selectedSecOfWorkout),
-                                               rest: seconds(min: selectedMinOfRest, sec: selectedSecOfRest))
-            self.totalTimeText = totalTime.toTimeFormat()
-        }.store(in: &subscription)
-        
-        Publishers.CombineLatest($selectedMinOfWorkout, $selectedSecOfWorkout).sink { [weak self] (min, sec) in
-            guard let self else { return }
-            timeOfWorkoutText = seconds(min: min, sec: sec).toTimeFormat()
-            let totalTime = calculateTotalTime(count: selectedCountOfSets,
-                                               warmup: seconds(min: selectedMinOfWarmup, sec: selectedSecOfWarmup),
-                                               workout: seconds(min: selectedMinOfWorkout, sec: selectedSecOfWorkout),
-                                               rest: seconds(min: selectedMinOfRest, sec: selectedSecOfRest))
-            self.totalTimeText = totalTime.toTimeFormat()
-        }.store(in: &subscription)
-        
-        Publishers.CombineLatest($selectedMinOfRest, $selectedSecOfRest).sink { [weak self] (min, sec) in
-            guard let self else { return }
-            timeOfRestText = seconds(min: min, sec: sec).toTimeFormat()
-            let totalTime = calculateTotalTime(count: selectedCountOfSets,
-                                               warmup: seconds(min: selectedMinOfWarmup, sec: selectedSecOfWarmup),
-                                               workout: seconds(min: selectedMinOfWorkout, sec: selectedSecOfWorkout),
-                                               rest: seconds(min: selectedMinOfRest, sec: selectedSecOfRest))
-            self.totalTimeText = totalTime.toTimeFormat()
-        }.store(in: &subscription)
-        
+        Publishers.CombineLatest4(
+            $countOfSets,
+            $timeOfWarmup,
+            $timeOfWorkout,
+            $timeOfRest
+        )
+        .receive(on: DispatchQueue.main)
+        .sink { output in
+            calculateAndFormatTotalTime()
+        }
+        .store(in: &subscription)
     }
     
-    private func calculateTotalTime(count: Int, warmup: Int, workout: Int, rest: Int) -> Int {
+    private func calculateTotalTime(count: Int, warmup: Int, workout: Int, rest: Int) -> Time {
         let total = warmup + ((workout + rest) * count )
-        return total
+        let min = total / 60
+        let sec = total % 60
+        return Time(minutes: min, seconds: sec)
     }
     
-    private func seconds(min: Int, sec: Int) -> Int {
-        return min * 60 + sec
-    }
-    
-}
-
-extension Int {
-    func toTimeFormat() -> String {
-        let min = self / 60
-        let sec = self % 60
-        return String(format: "%02d:%02d", min, sec)
-    }
 }

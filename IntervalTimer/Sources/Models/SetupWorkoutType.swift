@@ -41,7 +41,7 @@ enum SetupWorkoutType {
     var setsAllCase: [Int] {
         switch self {
         case .sets:
-            return Array(0...10)
+            return Array(1...10)
         default:
             return []
         }
