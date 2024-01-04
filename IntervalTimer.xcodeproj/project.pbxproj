@@ -137,17 +137,8 @@
 			children = (
 				7B40E83B2B2D85080062AEDE /* Resources */,
 				7B40E83A2B2D85010062AEDE /* Sources */,
-				7B39B0702B2D836E00825D33 /* Preview Content */,
 			);
 			path = IntervalTimer;
-			sourceTree = "<group>";
-		};
-		7B39B0702B2D836E00825D33 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				7B39B0712B2D836E00825D33 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		7B39B07A2B2D836E00825D33 /* IntervalTimerTests */ = {
@@ -173,7 +164,6 @@
 				7B39B06A2B2D836D00825D33 /* IntervalTimerApp.swift */,
 				7BAEB1052B468F4B0049E9A5 /* Utilities */,
 				7BAEB0FE2B343FF80049E9A5 /* Models */,
-				7B40E8482B2DC7950062AEDE /* Font.swift */,
 				7B40E8552B2F001C0062AEDE /* ViewModels */,
 				7B40E8542B2F00150062AEDE /* Views */,
 			);
@@ -185,6 +175,7 @@
 			children = (
 				7B40E8442B2DC73A0062AEDE /* Fonts */,
 				7B39B06E2B2D836E00825D33 /* Assets.xcassets */,
+				7B39B0712B2D836E00825D33 /* Preview Assets.xcassets */,
 				7B40E85C2B2F05ED0062AEDE /* InfoPlist.strings */,
 				7B40E86D2B31EE0E0062AEDE /* Localizable.strings */,
 			);
@@ -248,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				7B40E8422B2DC5500062AEDE /* Utils.swift */,
+				7B40E8482B2DC7950062AEDE /* Font.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
