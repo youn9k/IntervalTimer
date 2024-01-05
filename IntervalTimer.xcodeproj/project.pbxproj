@@ -31,6 +31,9 @@
 		7B40E86B2B31EE0E0062AEDE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7B40E86D2B31EE0E0062AEDE /* Localizable.strings */; };
 		7BAEB1002B3440050049E9A5 /* SetupWorkoutType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAEB0FF2B3440050049E9A5 /* SetupWorkoutType.swift */; };
 		7BAEB1072B46993F0049E9A5 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAEB1062B46993F0049E9A5 /* Time.swift */; };
+		7BAEB10B2B46DEC90049E9A5 /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAEB10A2B46DEC90049E9A5 /* ViewRouter.swift */; };
+		7BAEB10D2B47A7520049E9A5 /* LiquidView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAEB10C2B47A7520049E9A5 /* LiquidView.swift */; };
+		7BAEB1102B47B37A0049E9A5 /* Liquid in Frameworks */ = {isa = PBXBuildFile; productRef = 7BAEB10F2B47B37A0049E9A5 /* Liquid */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +88,9 @@
 		7B40E86F2B31EE0F0062AEDE /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7BAEB0FF2B3440050049E9A5 /* SetupWorkoutType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupWorkoutType.swift; sourceTree = "<group>"; };
 		7BAEB1062B46993F0049E9A5 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
+		7BAEB10A2B46DEC90049E9A5 /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
+		7BAEB10C2B47A7520049E9A5 /* LiquidView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiquidView.swift; sourceTree = "<group>"; };
+		7BAEB1152B47F5380049E9A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BAEB1102B47B37A0049E9A5 /* Liquid in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				7B39B06A2B2D836D00825D33 /* IntervalTimerApp.swift */,
+				7BAEB10A2B46DEC90049E9A5 /* ViewRouter.swift */,
 				7BAEB1052B468F4B0049E9A5 /* Utilities */,
 				7BAEB0FE2B343FF80049E9A5 /* Models */,
 				7B40E8552B2F001C0062AEDE /* ViewModels */,
@@ -173,6 +181,7 @@
 		7B40E83B2B2D85080062AEDE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7BAEB1152B47F5380049E9A5 /* Info.plist */,
 				7B40E8442B2DC73A0062AEDE /* Fonts */,
 				7B39B06E2B2D836E00825D33 /* Assets.xcassets */,
 				7B39B0712B2D836E00825D33 /* Preview Assets.xcassets */,
@@ -225,6 +234,7 @@
 		7BAEB1042B468D270049E9A5 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				7BAEB10C2B47A7520049E9A5 /* LiquidView.swift */,
 				7B40E84A2B2E872C0062AEDE /* BackgroundColorView.swift */,
 				7B40E8522B2EF0060062AEDE /* CarouselView.swift */,
 				7B40E84C2B2E8CE90062AEDE /* GlassRemainingTImeView.swift */,
@@ -260,6 +270,9 @@
 			dependencies = (
 			);
 			name = IntervalTimer;
+			packageProductDependencies = (
+				7BAEB10F2B47B37A0049E9A5 /* Liquid */,
+			);
 			productName = IntervalTimer;
 			productReference = 7B39B0672B2D836D00825D33 /* IntervalTimer.app */;
 			productType = "com.apple.product-type.application";
@@ -334,6 +347,9 @@
 				ja,
 			);
 			mainGroup = 7B39B05E2B2D836D00825D33;
+			packageReferences = (
+				7BAEB10E2B47B37A0049E9A5 /* XCRemoteSwiftPackageReference "liquid" */,
+			);
 			productRefGroup = 7B39B0682B2D836D00825D33 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -381,12 +397,14 @@
 				7B40E8532B2EF0060062AEDE /* CarouselView.swift in Sources */,
 				7B40E8432B2DC5500062AEDE /* Utils.swift in Sources */,
 				7B39B06D2B2D836D00825D33 /* ContentView.swift in Sources */,
+				7BAEB10D2B47A7520049E9A5 /* LiquidView.swift in Sources */,
 				7B40E83F2B2D87F90062AEDE /* MainView.swift in Sources */,
 				7B40E8682B31ED300062AEDE /* WorkoutViewModel.swift in Sources */,
 				7BAEB1072B46993F0049E9A5 /* Time.swift in Sources */,
 				7B40E8412B2D884E0062AEDE /* WorkoutView.swift in Sources */,
 				7B39B06B2B2D836D00825D33 /* IntervalTimerApp.swift in Sources */,
 				7B40E84B2B2E872C0062AEDE /* BackgroundColorView.swift in Sources */,
+				7BAEB10B2B46DEC90049E9A5 /* ViewRouter.swift in Sources */,
 				7B40E8642B31E72D0062AEDE /* CustomCorner.swift in Sources */,
 				7BAEB1002B3440050049E9A5 /* SetupWorkoutType.swift in Sources */,
 				7B40E8512B2EE7DE0062AEDE /* GlassWorkoutInfoView.swift in Sources */,
@@ -580,10 +598,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"IntervalTimer/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"IntervalTimer/Resources\"";
 				DEVELOPMENT_TEAM = MPMHNJMTGA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = IntervalTimer/Resources/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -610,10 +629,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"IntervalTimer/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"IntervalTimer/Resources\"";
 				DEVELOPMENT_TEAM = MPMHNJMTGA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = IntervalTimer/Resources/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -749,6 +769,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7BAEB10E2B47B37A0049E9A5 /* XCRemoteSwiftPackageReference "liquid" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/maustinstar/liquid.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7BAEB10F2B47B37A0049E9A5 /* Liquid */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7BAEB10E2B47B37A0049E9A5 /* XCRemoteSwiftPackageReference "liquid" */;
+			productName = Liquid;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7B39B05F2B2D836D00825D33 /* Project object */;
 }
