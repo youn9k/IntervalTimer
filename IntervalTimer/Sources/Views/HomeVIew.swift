@@ -27,64 +27,12 @@ struct HomeView: View {
                 
                 VStack(spacing: 20) {
                     HStack(spacing: 15) {
-                        Button(action: {
-                            withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 0.7, blendDuration: 0.25)) {
-                                selectedSetupWorkoutType = .sets
-                                showDetailPage = true
-                            }
-                        }, label: {
-                            cardView(type: .sets)
-                                .scaleEffect(selectedSetupWorkoutType == .sets && showDetailPage ? 1.2 : 1)
-                                .opacity(selectedSetupWorkoutType == .sets && showDetailPage ? 0.2 : 1)
-                        })
-                        .buttonStyle(ScaledButtonStyle())
-                        .opacity(showDetailPage ? (selectedSetupWorkoutType == .sets ? 1 : 0) : 1)
-                        .frame(width: 170, height: 120)
-                        
-                        Button(action: {
-                            withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 0.7, blendDuration: 0.25)) {
-                                selectedSetupWorkoutType = .warmup
-                                showDetailPage = true
-                            }
-                        }, label: {
-                            cardView(type: .warmup)
-                                .scaleEffect(selectedSetupWorkoutType == .warmup && showDetailPage ? 1.2 : 1)
-                                .opacity(selectedSetupWorkoutType == .warmup && showDetailPage ? 0.2 : 1)
-                        })
-                        .buttonStyle(ScaledButtonStyle())
-                        .opacity(showDetailPage ? (selectedSetupWorkoutType == .warmup ? 1 : 0) : 1)
-                        .frame(width: 170, height: 120)
-                        
+                        setupButton(type: .sets, label: cardView(type: .sets), width: 170, height: 120)
+                        setupButton(type: .warmup, label: cardView(type: .warmup), width: 170, height: 120)
                     }
                     HStack(spacing: 15) {
-                        Button(action: {
-                            withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 0.7, blendDuration: 0.25)) {
-                                selectedSetupWorkoutType = .workout
-                                showDetailPage = true
-                            }
-                        }, label: {
-                            cardView(type: .workout)
-                                .scaleEffect(selectedSetupWorkoutType == .workout && showDetailPage ? 1.2 : 1)
-                                .opacity(selectedSetupWorkoutType == .workout && showDetailPage ? 0.2 : 1)
-                        })
-                        .buttonStyle(ScaledButtonStyle())
-                        .opacity(showDetailPage ? (selectedSetupWorkoutType == .workout ? 1 : 0) : 1)
-                        .frame(width: 170, height: 120)
-                        
-                        Button(action: {
-                            withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 0.7, blendDuration: 0.25)) {
-                                selectedSetupWorkoutType = .rest
-                                showDetailPage = true
-                            }
-                        }, label: {
-                            cardView(type: .rest)
-                                .scaleEffect(selectedSetupWorkoutType == .rest && showDetailPage ? 1.2 : 1)
-                                .opacity(selectedSetupWorkoutType == .rest && showDetailPage ? 0.2 : 1)
-                        })
-                        .buttonStyle(ScaledButtonStyle())
-                        .opacity(showDetailPage ? (selectedSetupWorkoutType == .rest ? 1 : 0) : 1)
-                        .frame(width: 170, height: 120)
-                        
+                        setupButton(type: .workout, label: cardView(type: .workout), width: 170, height: 120)
+                        setupButton(type: .rest, label: cardView(type: .rest), width: 170, height: 120)
                     }
                 }
                 .padding(.horizontal, 20)
@@ -127,6 +75,22 @@ struct HomeView: View {
         }
         
         
+    }
+    
+    private func setupButton(type: SetupWorkoutType, label: some View, width: CGFloat, height: CGFloat) -> some View {
+        Button(action: {
+            withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 0.7, blendDuration: 0.25)) {
+                selectedSetupWorkoutType = type
+                showDetailPage = true
+            }
+        }) {
+            label
+                .scaleEffect(selectedSetupWorkoutType == type && showDetailPage ? 1.2 : 1)
+                .opacity(selectedSetupWorkoutType == type && showDetailPage ? 0.2 : 1)
+        }
+        .buttonStyle(ScaledButtonStyle())
+        .opacity(showDetailPage ? (selectedSetupWorkoutType == type ? 1 : 0) : 1)
+        .frame(width: width, height: height)
     }
     
     func startButton() -> some View {
