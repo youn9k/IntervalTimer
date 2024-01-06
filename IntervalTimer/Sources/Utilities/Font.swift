@@ -10,9 +10,9 @@ import SwiftUI
 
 public extension Font {
     enum TimerFont: String {
-        case light = "Pretendard-Light"
-        case medium = "Pretendard-Medium"
-        case bold = "Pretendard-Bold"
+        case light = "Inter-Light"
+        case medium = "Inter-Medium"
+        case bold = "Inter-Bold"
         
         func font(size: CGFloat) -> Font {
             if let uiFont = UIFont(name: self.rawValue, size: size) {

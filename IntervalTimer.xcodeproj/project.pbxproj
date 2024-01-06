@@ -36,6 +36,9 @@
 		7BAEB1102B47B37A0049E9A5 /* Liquid in Frameworks */ = {isa = PBXBuildFile; productRef = 7BAEB10F2B47B37A0049E9A5 /* Liquid */; };
 		7BAEB1182B4852360049E9A5 /* BottomSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 7BAEB1172B4852360049E9A5 /* BottomSheet */; };
 		7BBCFBD52B4932AB006B4D3F /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBCFBD42B4932AB006B4D3F /* Color.swift */; };
+		7BBCFBD72B495B3E006B4D3F /* Inter-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7BBCFBD62B495B3D006B4D3F /* Inter-Light.otf */; };
+		7BBCFBD92B495B46006B4D3F /* Inter-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7BBCFBD82B495B46006B4D3F /* Inter-Medium.otf */; };
+		7BBCFBDB2B495B4C006B4D3F /* Inter-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7BBCFBDA2B495B4C006B4D3F /* Inter-Bold.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,9 +72,6 @@
 		7B40E83E2B2D87F90062AEDE /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		7B40E8402B2D884E0062AEDE /* WorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutView.swift; sourceTree = "<group>"; };
 		7B40E8422B2DC5500062AEDE /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		7B40E8452B2DC7570062AEDE /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
-		7B40E8462B2DC7570062AEDE /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
-		7B40E8472B2DC7570062AEDE /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		7B40E8482B2DC7950062AEDE /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		7B40E84A2B2E872C0062AEDE /* BackgroundColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundColorView.swift; sourceTree = "<group>"; };
 		7B40E84C2B2E8CE90062AEDE /* GlassRemainingTImeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassRemainingTImeView.swift; sourceTree = "<group>"; };
@@ -94,6 +94,9 @@
 		7BAEB10C2B47A7520049E9A5 /* LiquidView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiquidView.swift; sourceTree = "<group>"; };
 		7BAEB1152B47F5380049E9A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7BBCFBD42B4932AB006B4D3F /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		7BBCFBD62B495B3D006B4D3F /* Inter-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Light.otf"; sourceTree = "<group>"; };
+		7BBCFBD82B495B46006B4D3F /* Inter-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.otf"; sourceTree = "<group>"; };
+		7BBCFBDA2B495B4C006B4D3F /* Inter-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,9 +201,9 @@
 		7B40E8442B2DC73A0062AEDE /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				7B40E8462B2DC7570062AEDE /* Pretendard-Bold.otf */,
-				7B40E8452B2DC7570062AEDE /* Pretendard-Light.otf */,
-				7B40E8472B2DC7570062AEDE /* Pretendard-Medium.otf */,
+				7BBCFBD62B495B3D006B4D3F /* Inter-Light.otf */,
+				7BBCFBD82B495B46006B4D3F /* Inter-Medium.otf */,
+				7BBCFBDA2B495B4C006B4D3F /* Inter-Bold.otf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -373,6 +376,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BBCFBD72B495B3E006B4D3F /* Inter-Light.otf in Resources */,
+				7BBCFBDB2B495B4C006B4D3F /* Inter-Bold.otf in Resources */,
+				7BBCFBD92B495B46006B4D3F /* Inter-Medium.otf in Resources */,
 				7B39B0722B2D836E00825D33 /* Preview Assets.xcassets in Resources */,
 				7B40E86B2B31EE0E0062AEDE /* Localizable.strings in Resources */,
 				7B40E85A2B2F05ED0062AEDE /* InfoPlist.strings in Resources */,
