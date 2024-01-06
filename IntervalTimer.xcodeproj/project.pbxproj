@@ -35,6 +35,7 @@
 		7BAEB10D2B47A7520049E9A5 /* LiquidView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAEB10C2B47A7520049E9A5 /* LiquidView.swift */; };
 		7BAEB1102B47B37A0049E9A5 /* Liquid in Frameworks */ = {isa = PBXBuildFile; productRef = 7BAEB10F2B47B37A0049E9A5 /* Liquid */; };
 		7BAEB1182B4852360049E9A5 /* BottomSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 7BAEB1172B4852360049E9A5 /* BottomSheet */; };
+		7BBCFBD52B4932AB006B4D3F /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBCFBD42B4932AB006B4D3F /* Color.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		7BAEB10A2B46DEC90049E9A5 /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
 		7BAEB10C2B47A7520049E9A5 /* LiquidView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiquidView.swift; sourceTree = "<group>"; };
 		7BAEB1152B47F5380049E9A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7BBCFBD42B4932AB006B4D3F /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +254,7 @@
 			children = (
 				7B40E8422B2DC5500062AEDE /* Utils.swift */,
 				7B40E8482B2DC7950062AEDE /* Font.swift */,
+				7BBCFBD42B4932AB006B4D3F /* Color.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 				7BAEB10B2B46DEC90049E9A5 /* ViewRouter.swift in Sources */,
 				7B40E8642B31E72D0062AEDE /* CustomCorner.swift in Sources */,
 				7BAEB1002B3440050049E9A5 /* SetupWorkoutType.swift in Sources */,
+				7BBCFBD52B4932AB006B4D3F /* Color.swift in Sources */,
 				7B40E8512B2EE7DE0062AEDE /* GlassWorkoutInfoView.swift in Sources */,
 				7B40E8662B31ECBC0062AEDE /* HomeViewModel.swift in Sources */,
 				7B40E8602B2F27F10062AEDE /* GlassView.swift in Sources */,
