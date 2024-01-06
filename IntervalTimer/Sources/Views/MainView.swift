@@ -6,91 +6,74 @@
 //
 
 import SwiftUI
-
-enum Tab {
-    case home, setting
-}
+import BottomSheet
 
 struct MainView: View {
-    @State var tab: Tab = .home
+    @StateObject var viewRouter = ViewRouter.shared
+    @State var bottomSheetPosition: BottomSheetPosition = .absolute(0.4)
     
     var body: some View {
-        ZStack(alignment: .bottom) {
-            HomeView()
-            CustomTabBar(tab: $tab)
+        ZStack {
+            switch viewRouter.viewType {
+            case .home:
+                HomeView()
+                
+            case .workout:
+                WorkoutView()
+                
+            case .setting:
+                Text("setting")
+            }
+            
         }
-        .ignoresSafeArea(edges: .bottom)
+        .bottomSheet(bottomSheetPosition: $bottomSheetPosition, switchablePositions: [.absolute(0.4), .relativeTop(0.6), .relativeTop(1)],
+            headerContent: {
+                bottomSheetHeaderContent()
+            }, mainContent: {
+                bottomSheetMainContent()
+            })
+        .customBackground {
+            Color.white
+                .clipShape(CustomCorner(corners: [.topLeft, .topRight], radius: 30))
+                .shadow(radius: 20, x: 8, y: 0)
+        }
+        .enableAppleScrollBehavior()
+        .enableBackgroundBlur()
+        .backgroundBlurMaterial(.systemDark)
+    }
+    
+    func bottomSheetHeaderContent() -> some View {
+        HStack(spacing: 40) {
+            Spacer()
+            Image(.recordGray)
+                .resizable()
+                .frame(width: 32, height: 32)
+                .padding(.horizontal, 40)
+                .onTapGesture {
+                    self.bottomSheetPosition = .relativeTop(0.9)
+                }
+            
+            Image(.gearGray)
+                .resizable()
+                .frame(width: 32, height: 32)
+                .padding(.horizontal, 40)
+                .onTapGesture {
+                    self.bottomSheetPosition = .relativeTop(0.9)
+                }
+            Spacer()
+        }.padding(.bottom, 5)
+    }
+    
+    func bottomSheetMainContent() -> some View {
+        ScrollView {
+            ForEach(0..<10) { _ in
+                Text("임시 텍스트")
+            }
+        }
     }
 }
 
 
 #Preview {
     MainView()
-}
-
-extension MainView {
-    @ViewBuilder
-    func view(tab: Tab) -> some View {
-        switch tab {
-        case .home:
-            HomeView()
-        case .setting:
-            HomeView()
-        }
-    }
-}
-
-
-struct CustomTabBar: View {
-    @Binding var tab: Tab
-    
-    func fillIconImage(tab: Tab) -> String {
-        switch tab {
-        case .home:
-            return "house.fill"
-        case .setting:
-            return "person.fill"
-        }
-    }
-    
-    var body: some View {
-        HStack(spacing: 0) {
-            Spacer()
-            Button(action: {
-                print("홈눌림")
-                print(SAFEAREA_BOTTOM_HEIGHT())
-                tab = .home
-            }){
-                Image(systemName: tab == .home ? fillIconImage(tab: self.tab) : "house")
-                    .resizable()
-                    .scaledToFit()
-                    .tint(.timerBlue)
-                    .frame(height: 30)
-                    .padding(20)
-            }
-            Spacer()
-            Button(action: {
-                print("세팅눌림")
-                tab = .setting
-            }){
-                Image(systemName: tab == .setting ? fillIconImage(tab: self.tab) : "person")
-                    .resizable()
-                    .scaledToFit()
-                    .tint(.timerBlue)
-                    .frame(height: 30)
-                    .padding(20)
-            }
-            Spacer()
-        }
-        .padding(.bottom, SAFEAREA_BOTTOM_HEIGHT())
-        .frame(width: APP_WIDTH(), height: 56 + SAFEAREA_BOTTOM_HEIGHT())
-        .background(
-            Rectangle()
-                .foregroundStyle(.white)
-                .clipShape(CustomCorner(corners: [.topLeft, .topRight], radius: 15))
-        )
-        .shadow(color: Color(.sRGBLinear, red: 0, green: 0, blue: 0, opacity: 0.12), radius: 7, x: 0, y: -3)
-        .mask(Rectangle().padding(.top, -20)) // 아래쪽 그림자를 없애기 위해
-        
-    }
 }
