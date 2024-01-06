@@ -34,6 +34,7 @@
 		7BAEB10B2B46DEC90049E9A5 /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAEB10A2B46DEC90049E9A5 /* ViewRouter.swift */; };
 		7BAEB10D2B47A7520049E9A5 /* LiquidView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAEB10C2B47A7520049E9A5 /* LiquidView.swift */; };
 		7BAEB1102B47B37A0049E9A5 /* Liquid in Frameworks */ = {isa = PBXBuildFile; productRef = 7BAEB10F2B47B37A0049E9A5 /* Liquid */; };
+		7BAEB1182B4852360049E9A5 /* BottomSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 7BAEB1172B4852360049E9A5 /* BottomSheet */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BAEB1102B47B37A0049E9A5 /* Liquid in Frameworks */,
+				7BAEB1182B4852360049E9A5 /* BottomSheet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +274,7 @@
 			name = IntervalTimer;
 			packageProductDependencies = (
 				7BAEB10F2B47B37A0049E9A5 /* Liquid */,
+				7BAEB1172B4852360049E9A5 /* BottomSheet */,
 			);
 			productName = IntervalTimer;
 			productReference = 7B39B0672B2D836D00825D33 /* IntervalTimer.app */;
@@ -349,6 +352,7 @@
 			mainGroup = 7B39B05E2B2D836D00825D33;
 			packageReferences = (
 				7BAEB10E2B47B37A0049E9A5 /* XCRemoteSwiftPackageReference "liquid" */,
+				7BAEB1162B4852360049E9A5 /* XCRemoteSwiftPackageReference "BottomSheet" */,
 			);
 			productRefGroup = 7B39B0682B2D836D00825D33 /* Products */;
 			projectDirPath = "";
@@ -779,6 +783,14 @@
 				kind = branch;
 			};
 		};
+		7BAEB1162B4852360049E9A5 /* XCRemoteSwiftPackageReference "BottomSheet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lucaszischka/BottomSheet";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -786,6 +798,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7BAEB10E2B47B37A0049E9A5 /* XCRemoteSwiftPackageReference "liquid" */;
 			productName = Liquid;
+		};
+		7BAEB1172B4852360049E9A5 /* BottomSheet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7BAEB1162B4852360049E9A5 /* XCRemoteSwiftPackageReference "BottomSheet" */;
+			productName = BottomSheet;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
