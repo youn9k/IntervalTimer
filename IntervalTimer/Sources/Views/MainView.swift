@@ -43,25 +43,28 @@ struct MainView: View {
     }
     
     func bottomSheetHeaderContent() -> some View {
-        HStack(spacing: 40) {
-            Spacer()
-            Image(.recordGray)
-                .resizable()
-                .frame(width: 32, height: 32)
-                .padding(.horizontal, 40)
-                .onTapGesture {
-                    self.bottomSheetPosition = .relativeTop(0.9)
-                }
-            
-            Image(.gearGray)
-                .resizable()
-                .frame(width: 32, height: 32)
-                .padding(.horizontal, 40)
-                .onTapGesture {
-                    self.bottomSheetPosition = .relativeTop(0.9)
-                }
-            Spacer()
-        }.padding(.bottom, 5)
+        VStack {
+            HStack(spacing: 40) {
+                Spacer()
+                Image(.recordGray)
+                    .resizable()
+                    .frame(width: 32, height: 32)
+                    .padding(.horizontal, 40)
+                    .onTapGesture {
+                        self.bottomSheetPosition = .relativeTop(0.9)
+                    }
+                
+                Image(.gearGray)
+                    .resizable()
+                    .frame(width: 32, height: 32)
+                    .padding(.horizontal, 40)
+                    .onTapGesture {
+                        self.bottomSheetPosition = .relativeTop(0.9)
+                    }
+                Spacer()
+            }.padding(.bottom, 5)
+            Spacer().frame(height: SAFEAREA_BOTTOM_HEIGHT())
+        }
     }
     
     func bottomSheetMainContent() -> some View {

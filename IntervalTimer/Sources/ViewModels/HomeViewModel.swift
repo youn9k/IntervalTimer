@@ -26,7 +26,7 @@ final class HomeViewModel: ObservableObject, HomeViewModelType {
     private var subscription = Set<AnyCancellable>()
     
     @Published var countOfSets: Int = 1
-    @Published var timeOfWarmup: Time = .init(minutes: 0, seconds: 40)
+    @Published var timeOfWarmup: Time = .init(minutes: 0, seconds: 10)
     @Published var timeOfWorkout: Time = .init(minutes: 0, seconds: 40)
     @Published var timeOfRest: Time = .init(minutes: 0, seconds: 20)
     @Published var totalTime: Time = .init(minutes: 0, seconds: 0)

@@ -15,8 +15,8 @@ enum SetupWorkoutType {
         switch self {
         case .sets: return "arrow.counterclockwise.circle.fill"
         case .warmup: return "figure.walk.circle.fill"
-        case .workout: return "figure.run.circle.fill"
-        case .rest: return "pause.circle.fill"
+        case .workout: return "figure.run"
+        case .rest: return "pause.fill"
         }
     }
     
@@ -31,10 +31,19 @@ enum SetupWorkoutType {
     
     var theme: Color {
         switch self {
-        case .sets: return .timerGray
-        case .warmup: return .blue
-        case .workout: return .green
-        case .rest: return .yellow
+        case .sets: return Color(hex: "404040")
+        case .warmup: return Color(hex: "348FFF")
+        case .workout: return Color(hex: "00BF56")
+        case .rest: return Color(hex: "FFC52F")
+        }
+    }
+    
+    var subTheme: Color {
+        switch self {
+        case .sets: return Color(hex: "BEBEBE")
+        case .warmup: return Color(hex: "90CAFF")
+        case .workout: return Color(hex: "DFFFEE")
+        case .rest: return Color(hex: "FFF5DB")
         }
     }
     
@@ -65,7 +74,7 @@ enum SetupWorkoutType {
         case .sets:
             return []
         case .warmup:
-            return Array(0...11).map { $0 * 5 }
+            return Array(stride(from: 10, through: 60, by: 10))
         case .workout:
             return Array(0...11).map { $0 * 5 }
         case .rest:
