@@ -45,9 +45,9 @@ final class HomeViewModel: ObservableObject, HomeViewModelType {
         let calculateAndFormatTotalTime: () -> Void = {
             let total = self.calculateTotalTime(
                 count: self.countOfSets,
-                warmup: self.timeOfWarmup.toSeconds(),
-                workout: self.timeOfWorkout.toSeconds(),
-                rest: self.timeOfRest.toSeconds()
+                warmup: self.timeOfWarmup.totalSeconds,
+                workout: self.timeOfWorkout.totalSeconds,
+                rest: self.timeOfRest.totalSeconds
             )
             self.totalTime = total
         }

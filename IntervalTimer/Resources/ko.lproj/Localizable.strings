@@ -18,10 +18,10 @@
 
 "WORKOUT_START" = "운동 시작";
 
-"DIRECT_INPUT" = "직접 입력";
-
 "MINUTE" = "분";
 
 "SECONDS" = "초";
 
 "SETS" = "세트";
+
+"PAUSE" = "일시 정지";

@@ -21,9 +21,7 @@ class ViewRouter: ObservableObject {
         self.viewType = .home
     }
     
-    deinit {
-        print("❌ ViewRouter deinit")
-    }
+    deinit { print("❌ ViewRouter deinit") }
     
     func change(to viewType: ViewType) {
         self.viewType = viewType

@@ -143,7 +143,7 @@ struct HomeView: View {
     
     func startButton() -> some View {
         Button(action: {
-            ViewRouter.shared.change(to: .setting)
+            ViewRouter.shared.change(to: .workout)
         }, label: {
             RoundedRectangle(cornerRadius: 20)
                 .frame(height: 60)

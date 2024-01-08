@@ -18,10 +18,10 @@
 
 "WORKOUT_START" = "Workout Start";
 
-"DIRECT_INPUT" = "In Person";
-
 "MINUTE" = "min";
 
 "SECONDS" = "sec";
 
 "SETS" = "sets";
+
+"PAUSE" = "Pause";

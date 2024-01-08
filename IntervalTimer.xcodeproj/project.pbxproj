@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B126EBC2B4C338900FAA8A5 /* Liquid in Frameworks */ = {isa = PBXBuildFile; productRef = 7B126EBB2B4C338900FAA8A5 /* Liquid */; };
+		7B126EBE2B4C338C00FAA8A5 /* BottomSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 7B126EBD2B4C338C00FAA8A5 /* BottomSheet */; };
 		7B39B06B2B2D836D00825D33 /* IntervalTimerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B39B06A2B2D836D00825D33 /* IntervalTimerApp.swift */; };
 		7B39B06D2B2D836D00825D33 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B39B06C2B2D836D00825D33 /* ContentView.swift */; };
 		7B39B06F2B2D836E00825D33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B39B06E2B2D836E00825D33 /* Assets.xcassets */; };
 		7B39B0722B2D836E00825D33 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B39B0712B2D836E00825D33 /* Preview Assets.xcassets */; };
 		7B39B07C2B2D836E00825D33 /* IntervalTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B39B07B2B2D836E00825D33 /* IntervalTimerTests.swift */; };
-		7B39B0862B2D836E00825D33 /* IntervalTimerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B39B0852B2D836E00825D33 /* IntervalTimerUITests.swift */; };
-		7B39B0882B2D836E00825D33 /* IntervalTimerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B39B0872B2D836E00825D33 /* IntervalTimerUITestsLaunchTests.swift */; };
 		7B40E83F2B2D87F90062AEDE /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B40E83E2B2D87F90062AEDE /* MainView.swift */; };
 		7B40E8412B2D884E0062AEDE /* WorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B40E8402B2D884E0062AEDE /* WorkoutView.swift */; };
 		7B40E8432B2DC5500062AEDE /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B40E8422B2DC5500062AEDE /* Utils.swift */; };
@@ -39,17 +39,12 @@
 		7BBCFBD72B495B3E006B4D3F /* Inter-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7BBCFBD62B495B3D006B4D3F /* Inter-Light.otf */; };
 		7BBCFBD92B495B46006B4D3F /* Inter-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7BBCFBD82B495B46006B4D3F /* Inter-Medium.otf */; };
 		7BBCFBDB2B495B4C006B4D3F /* Inter-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7BBCFBDA2B495B4C006B4D3F /* Inter-Bold.otf */; };
+		7BBCFBDD2B4C1031006B4D3F /* WorkoutState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBCFBDC2B4C1031006B4D3F /* WorkoutState.swift */; };
+		7BBCFBE22B4C3164006B4D3F /* TimeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBCFBE12B4C3164006B4D3F /* TimeTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		7B39B0782B2D836E00825D33 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7B39B05F2B2D836D00825D33 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7B39B0662B2D836D00825D33;
-			remoteInfo = IntervalTimer;
-		};
-		7B39B0822B2D836E00825D33 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7B39B05F2B2D836D00825D33 /* Project object */;
 			proxyType = 1;
@@ -66,9 +61,6 @@
 		7B39B0712B2D836E00825D33 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7B39B0772B2D836E00825D33 /* IntervalTimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IntervalTimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B39B07B2B2D836E00825D33 /* IntervalTimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalTimerTests.swift; sourceTree = "<group>"; };
-		7B39B0812B2D836E00825D33 /* IntervalTimerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IntervalTimerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7B39B0852B2D836E00825D33 /* IntervalTimerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalTimerUITests.swift; sourceTree = "<group>"; };
-		7B39B0872B2D836E00825D33 /* IntervalTimerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalTimerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		7B40E83E2B2D87F90062AEDE /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		7B40E8402B2D884E0062AEDE /* WorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutView.swift; sourceTree = "<group>"; };
 		7B40E8422B2DC5500062AEDE /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -97,6 +89,8 @@
 		7BBCFBD62B495B3D006B4D3F /* Inter-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Light.otf"; sourceTree = "<group>"; };
 		7BBCFBD82B495B46006B4D3F /* Inter-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.otf"; sourceTree = "<group>"; };
 		7BBCFBDA2B495B4C006B4D3F /* Inter-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.otf"; sourceTree = "<group>"; };
+		7BBCFBDC2B4C1031006B4D3F /* WorkoutState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutState.swift; sourceTree = "<group>"; };
+		7BBCFBE12B4C3164006B4D3F /* TimeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,13 +107,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7B39B07E2B2D836E00825D33 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				7B126EBC2B4C338900FAA8A5 /* Liquid in Frameworks */,
+				7B126EBE2B4C338C00FAA8A5 /* BottomSheet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,8 +120,8 @@
 			children = (
 				7B39B0692B2D836D00825D33 /* IntervalTimer */,
 				7B39B07A2B2D836E00825D33 /* IntervalTimerTests */,
-				7B39B0842B2D836E00825D33 /* IntervalTimerUITests */,
 				7B39B0682B2D836D00825D33 /* Products */,
+				7BBCFBDE2B4C2FA4006B4D3F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -141,7 +130,6 @@
 			children = (
 				7B39B0672B2D836D00825D33 /* IntervalTimer.app */,
 				7B39B0772B2D836E00825D33 /* IntervalTimerTests.xctest */,
-				7B39B0812B2D836E00825D33 /* IntervalTimerUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -159,17 +147,9 @@
 			isa = PBXGroup;
 			children = (
 				7B39B07B2B2D836E00825D33 /* IntervalTimerTests.swift */,
+				7BBCFBE12B4C3164006B4D3F /* TimeTest.swift */,
 			);
 			path = IntervalTimerTests;
-			sourceTree = "<group>";
-		};
-		7B39B0842B2D836E00825D33 /* IntervalTimerUITests */ = {
-			isa = PBXGroup;
-			children = (
-				7B39B0852B2D836E00825D33 /* IntervalTimerUITests.swift */,
-				7B39B0872B2D836E00825D33 /* IntervalTimerUITestsLaunchTests.swift */,
-			);
-			path = IntervalTimerUITests;
 			sourceTree = "<group>";
 		};
 		7B40E83A2B2D85010062AEDE /* Sources */ = {
@@ -177,6 +157,7 @@
 			children = (
 				7B39B06A2B2D836D00825D33 /* IntervalTimerApp.swift */,
 				7BAEB10A2B46DEC90049E9A5 /* ViewRouter.swift */,
+				7BBCFBDC2B4C1031006B4D3F /* WorkoutState.swift */,
 				7BAEB1052B468F4B0049E9A5 /* Utilities */,
 				7BAEB0FE2B343FF80049E9A5 /* Models */,
 				7B40E8552B2F001C0062AEDE /* ViewModels */,
@@ -262,6 +243,13 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		7BBCFBDE2B4C2FA4006B4D3F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -300,27 +288,13 @@
 				7B39B0792B2D836E00825D33 /* PBXTargetDependency */,
 			);
 			name = IntervalTimerTests;
+			packageProductDependencies = (
+				7B126EBB2B4C338900FAA8A5 /* Liquid */,
+				7B126EBD2B4C338C00FAA8A5 /* BottomSheet */,
+			);
 			productName = IntervalTimerTests;
 			productReference = 7B39B0772B2D836E00825D33 /* IntervalTimerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		7B39B0802B2D836E00825D33 /* IntervalTimerUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 7B39B0912B2D836E00825D33 /* Build configuration list for PBXNativeTarget "IntervalTimerUITests" */;
-			buildPhases = (
-				7B39B07D2B2D836E00825D33 /* Sources */,
-				7B39B07E2B2D836E00825D33 /* Frameworks */,
-				7B39B07F2B2D836E00825D33 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				7B39B0832B2D836E00825D33 /* PBXTargetDependency */,
-			);
-			name = IntervalTimerUITests;
-			productName = IntervalTimerUITests;
-			productReference = 7B39B0812B2D836E00825D33 /* IntervalTimerUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -337,11 +311,6 @@
 					};
 					7B39B0762B2D836E00825D33 = {
 						CreatedOnToolsVersion = 15.0.1;
-						TestTargetID = 7B39B0662B2D836D00825D33;
-					};
-					7B39B0802B2D836E00825D33 = {
-						CreatedOnToolsVersion = 15.0.1;
-						TestTargetID = 7B39B0662B2D836D00825D33;
 					};
 				};
 			};
@@ -366,7 +335,6 @@
 			targets = (
 				7B39B0662B2D836D00825D33 /* IntervalTimer */,
 				7B39B0762B2D836E00825D33 /* IntervalTimerTests */,
-				7B39B0802B2D836E00825D33 /* IntervalTimerUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -387,13 +355,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		7B39B0752B2D836E00825D33 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7B39B07F2B2D836E00825D33 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -421,6 +382,7 @@
 				7B40E8642B31E72D0062AEDE /* CustomCorner.swift in Sources */,
 				7BAEB1002B3440050049E9A5 /* SetupWorkoutType.swift in Sources */,
 				7BBCFBD52B4932AB006B4D3F /* Color.swift in Sources */,
+				7BBCFBDD2B4C1031006B4D3F /* WorkoutState.swift in Sources */,
 				7B40E8512B2EE7DE0062AEDE /* GlassWorkoutInfoView.swift in Sources */,
 				7B40E8662B31ECBC0062AEDE /* HomeViewModel.swift in Sources */,
 				7B40E8602B2F27F10062AEDE /* GlassView.swift in Sources */,
@@ -434,16 +396,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BBCFBE22B4C3164006B4D3F /* TimeTest.swift in Sources */,
 				7B39B07C2B2D836E00825D33 /* IntervalTimerTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7B39B07D2B2D836E00825D33 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7B39B0862B2D836E00825D33 /* IntervalTimerUITests.swift in Sources */,
-				7B39B0882B2D836E00825D33 /* IntervalTimerUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,11 +408,6 @@
 			isa = PBXTargetDependency;
 			target = 7B39B0662B2D836D00825D33 /* IntervalTimer */;
 			targetProxy = 7B39B0782B2D836E00825D33 /* PBXContainerItemProxy */;
-		};
-		7B39B0832B2D836E00825D33 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 7B39B0662B2D836D00825D33 /* IntervalTimer */;
-			targetProxy = 7B39B0822B2D836E00825D33 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -671,7 +620,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MPMHNJMTGA;
@@ -683,7 +631,6 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IntervalTimer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/IntervalTimer";
 			};
 			name = Debug;
 		};
@@ -691,7 +638,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MPMHNJMTGA;
@@ -703,43 +649,6 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IntervalTimer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/IntervalTimer";
-			};
-			name = Release;
-		};
-		7B39B0922B2D836E00825D33 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = MPMHNJMTGA;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.youngkyu.song.IntervalTimerUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = IntervalTimer;
-			};
-			name = Debug;
-		};
-		7B39B0932B2D836E00825D33 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = MPMHNJMTGA;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.youngkyu.song.IntervalTimerUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = IntervalTimer;
 			};
 			name = Release;
 		};
@@ -773,15 +682,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7B39B0912B2D836E00825D33 /* Build configuration list for PBXNativeTarget "IntervalTimerUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7B39B0922B2D836E00825D33 /* Debug */,
-				7B39B0932B2D836E00825D33 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
@@ -804,6 +704,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		7B126EBB2B4C338900FAA8A5 /* Liquid */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7BAEB10E2B47B37A0049E9A5 /* XCRemoteSwiftPackageReference "liquid" */;
+			productName = Liquid;
+		};
+		7B126EBD2B4C338C00FAA8A5 /* BottomSheet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7BAEB1162B4852360049E9A5 /* XCRemoteSwiftPackageReference "BottomSheet" */;
+			productName = BottomSheet;
+		};
 		7BAEB10F2B47B37A0049E9A5 /* Liquid */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7BAEB10E2B47B37A0049E9A5 /* XCRemoteSwiftPackageReference "liquid" */;
