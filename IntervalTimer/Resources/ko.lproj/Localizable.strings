@@ -8,6 +8,8 @@
 
 "TOTAL_WORKOUT_TIME" = "총 운동 시간";
 
+"WORKOUT_TIME" = "운동 시간";
+
 "NUM_OF_SETS" = "세트 수";
 
 "WARM_UP" = "준비 운동";
@@ -25,3 +27,7 @@
 "SETS" = "세트";
 
 "PAUSE" = "일시 정지";
+
+"HEART_RATE" = "심박 수";
+
+"KCAL" = "칼로리";

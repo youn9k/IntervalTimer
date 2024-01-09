@@ -8,6 +8,8 @@
 
 "TOTAL_WORKOUT_TIME" = "Total Workout Time";
 
+"WORKOUT_TIME" = "Workout Time";
+
 "NUM_OF_SETS" = "Sets";
 
 "WARM_UP" = "Warm-up";
@@ -25,3 +27,7 @@
 "SETS" = "sets";
 
 "PAUSE" = "Pause";
+
+"HEART_RATE" = "Heart Rate";
+
+"KCAL" = "Kcal";
