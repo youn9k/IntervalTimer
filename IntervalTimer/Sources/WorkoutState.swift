@@ -13,15 +13,15 @@ import Combine
 final class WorkoutState: ObservableObject {
     static let shared = WorkoutState()
     
-    @Published var state: State
+    @Published var phase: Phase
     @Published var remainTotalTime: Time
-    @Published var workoutPhases: [WorkoutPhase]
+    @Published var workoutPhases: [PhaseInfo]
     private var timerSubscription: AnyCancellable?
 
     private init() {
         print("✅ WorkoutState init")
         self.remainTotalTime = Time(seconds: 0)
-        self.state = .warmup
+        self.phase = .warmup
         self.workoutPhases = []
     }
     
@@ -31,23 +31,17 @@ final class WorkoutState: ObservableObject {
 
 extension WorkoutState {
     func startWorkout(time: Time) {
-        updateState(.warmup)
-        
-    }
-    
-    private func updateState(_ newState: State) {
-        self.state = newState
+        cancelTimer()
+        popWorkoutPhase()
+        startTimer()
     }
     
     private func startTimer() {
-        cancelTimer() // 이전 타이머 취소
-        
         timerSubscription = Timer.publish(every: 1, on: .main, in: .common)
             .autoconnect()
             .sink { [weak self] _ in
                 self?.handleTimerTick()
             }
-            
     }
     
     private func cancelTimer() {
@@ -57,30 +51,52 @@ extension WorkoutState {
     private func handleTimerTick() {
         if remainTotalTime.totalSeconds > 0 {
             remainTotalTime.minus(1)
-        } else {
-//            switch state {
-//            case .warmup:
-//                
-//            case .workout:
-//                
-//            case .rest:
-//                
-//            case .pause:
-//                
-//            }
+        } else { // 타이머 종료 시 처리
+            cancelTimer()
+            if !workoutPhases.isEmpty { // 남은 페이즈가 있으면
+                popWorkoutPhase()
+                startTimer()
+            }
         }
     }
-}
-
-extension WorkoutState {
-    struct WorkoutPhase {
-        var state: State
-        var time: Time
+    
+    private func popWorkoutPhase() {
+        let newPhase = workoutPhases.removeFirst()
+        updateState(newPhase.state)
+        remainTotalTime = newPhase.time
+        
+    }
+    
+    private func updateState(_ newState: Phase) {
+        self.phase = newState
     }
 }
 
 extension WorkoutState {
-    enum State {
+    struct PhaseInfo {
+        var state: Phase
+        var time: Time
+    }
+    
+    func createPhases(sets: Int, warmupTime: Time, workoutTime: Time, restTime: Time) {
+        var phases: [PhaseInfo] = []
+        
+        phases.append(PhaseInfo(state: .warmup, time: warmupTime))
+        
+        for setIndex in 0..<sets {
+            phases.append(PhaseInfo(state: .workout, time: workoutTime))
+            
+            if setIndex < sets - 1 {
+                phases.append(PhaseInfo(state: .rest, time: restTime))
+            }
+        }
+        
+        self.workoutPhases = phases
+    }
+}
+
+extension WorkoutState {
+    enum Phase {
         case warmup, workout, rest, pause
         
         var title: LocalizedStringKey {

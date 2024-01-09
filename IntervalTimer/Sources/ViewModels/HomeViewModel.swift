@@ -31,7 +31,6 @@ final class HomeViewModel: ObservableObject, HomeViewModelType {
     @Published var timeOfRest: Time = .init(minutes: 0, seconds: 20)
     @Published var totalTime: Time = .init(minutes: 0, seconds: 0)
     
-    
     init() {
         print("✅ HomeViewModel 생성")
         bindInput()
@@ -63,6 +62,10 @@ final class HomeViewModel: ObservableObject, HomeViewModelType {
             calculateAndFormatTotalTime()
         }
         .store(in: &subscription)
+    }
+    
+    func workoutStart() {
+        WorkoutState.shared.createPhases(sets: countOfSets, warmupTime: timeOfWarmup, workoutTime: timeOfWorkout, restTime: timeOfRest)
     }
     
     private func calculateTotalTime(count: Int, warmup: Int, workout: Int, rest: Int) -> Time {
