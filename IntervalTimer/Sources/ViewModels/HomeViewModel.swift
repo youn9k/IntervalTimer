@@ -65,7 +65,7 @@ final class HomeViewModel: ObservableObject, HomeViewModelType {
     }
     
     func workoutStart() {
-        WorkoutState.shared.createPhases(sets: countOfSets, warmupTime: timeOfWarmup, workoutTime: timeOfWorkout, restTime: timeOfRest)
+        WorkoutState.shared.startWorkout(sets: countOfSets, warmupTime: timeOfWarmup, workoutTime: timeOfWorkout, restTime: timeOfRest)
     }
     
     private func calculateTotalTime(count: Int, warmup: Int, workout: Int, rest: Int) -> Time {

@@ -8,7 +8,7 @@
 import Foundation
 
 enum ViewType {
-    case home, workout, setting
+    case home, workout, congratuation, setting
 }
 
 class ViewRouter: ObservableObject {
@@ -18,7 +18,7 @@ class ViewRouter: ObservableObject {
     
     private init() {
         print("✅ ViewRouter init")
-        self.viewType = .home
+        self.viewType = .workout
     }
     
     deinit { print("❌ ViewRouter deinit") }
