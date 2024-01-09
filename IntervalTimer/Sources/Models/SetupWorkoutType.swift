@@ -76,9 +76,9 @@ enum SetupWorkoutType {
         case .warmup:
             return Array(stride(from: 10, through: 60, by: 10))
         case .workout:
-            return Array(0...11).map { $0 * 5 }
+            return Array(1...11).map { $0 * 5 }
         case .rest:
-            return Array(0...11).map { $0 * 5 }
+            return Array(1...11).map { $0 * 5 }
         }
     }
     
