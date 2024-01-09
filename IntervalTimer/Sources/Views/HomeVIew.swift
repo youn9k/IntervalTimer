@@ -20,7 +20,7 @@ struct HomeView: View {
                 .ignoresSafeArea(edges: .top)
             
             VStack {
-                Spacer().frame(height: 30)
+                Spacer(minLength: 45)
                 totalTimeView()
                 Spacer()
                 
@@ -36,13 +36,12 @@ struct HomeView: View {
                     setupButton(type: .rest, label: cardView(type: .rest, width: 353, height: 100))
                 }
                 .padding(.horizontal, 20)
+                .padding(.bottom, 30)
                 
                 startButton()
                     .padding(.horizontal, 20)
-                    .padding(.top, 10)
-                    .padding(.bottom, 20)
                 
-                Spacer().frame(height: 56 + SAFEAREA_BOTTOM_HEIGHT())
+                Spacer().frame(height: 100)
                 
             }
             
