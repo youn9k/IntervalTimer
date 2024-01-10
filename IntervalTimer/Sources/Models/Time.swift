@@ -22,6 +22,10 @@ public struct Time: Hashable {
         self.minutes = seconds / 60
         self.seconds = seconds % 60
     }
+    
+    init() {
+        self.init(minutes: 0, seconds: 0)
+    }
 }
 
 extension Time {

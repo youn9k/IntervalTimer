@@ -29,14 +29,14 @@ final class WorkoutState: ObservableObject {
     // 프로그래스바 만들기
     private init() {
         print("✅ WorkoutState init")
-        self.remainPhaseTime = Time(seconds: 0)
-        self.recordTime = Time(seconds: 0)
+        self.remainPhaseTime = Time()
+        self.recordTime = Time()
         self.currentPhase = .warmup
         self.workoutPhases = []
         self.isPaused = false
         self.totalSetsCount = 0
         self.currentSetsCount = 0
-        self.totalWorkoutTime = Time(seconds: 0)
+        self.totalWorkoutTime = Time()
     }
     
     deinit { print("❌ WorkoutState deinit") }
@@ -77,14 +77,14 @@ extension WorkoutState {
     }
     
     func clearWorkout() {
-        self.remainPhaseTime = Time(seconds: 0)
-        self.recordTime = Time(seconds: 0)
+        self.remainPhaseTime = Time()
+        self.recordTime = Time()
         self.currentPhase = .warmup
         self.workoutPhases = []
         self.isPaused = false
         self.totalSetsCount = 0
         self.currentSetsCount = 0
-        self.totalWorkoutTime = Time(seconds: 0)
+        self.totalWorkoutTime = Time()
     }
     
     func calculateTotalWorkoutTime(sets: Int, warmup: Time, workout: Time, rest: Time) -> Time {
