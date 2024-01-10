@@ -42,11 +42,11 @@ final class HomeViewModel: ObservableObject, HomeViewModelType {
     
     private func bindInput() {
         let calculateAndFormatTotalTime: () -> Void = {
-            let total = self.calculateTotalTime(
-                count: self.countOfSets,
-                warmup: self.timeOfWarmup.totalSeconds,
-                workout: self.timeOfWorkout.totalSeconds,
-                rest: self.timeOfRest.totalSeconds
+            let total = WorkoutState.shared.calculateTotalWorkoutTime(
+                sets: self.countOfSets,
+                warmup: self.timeOfWarmup,
+                workout: self.timeOfWorkout,
+                rest: self.timeOfRest
             )
             self.totalTime = total
         }
@@ -66,13 +66,6 @@ final class HomeViewModel: ObservableObject, HomeViewModelType {
     
     func workoutStart() {
         WorkoutState.shared.startWorkout(sets: countOfSets, warmupTime: timeOfWarmup, workoutTime: timeOfWorkout, restTime: timeOfRest)
-    }
-    
-    private func calculateTotalTime(count: Int, warmup: Int, workout: Int, rest: Int) -> Time {
-        let total = warmup + ((workout + rest) * count )
-        let min = total / 60
-        let sec = total % 60
-        return Time(minutes: min, seconds: sec)
     }
     
 }

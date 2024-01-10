@@ -19,13 +19,14 @@ final class WorkoutState: ObservableObject {
     @Published var recordTime: Time
     @Published var totalSetsCount: Int
     @Published var currentSetsCount: Int
+    private var totalWorkoutTime: Time
     
     private var phaseTimerSubscription: AnyCancellable?
     private var recordTimerSubscription: AnyCancellable?
     
     @Published private(set) var isPaused: Bool
     private var tempPhase: Phase?
-    
+    // 프로그래스바 만들기
     private init() {
         print("✅ WorkoutState init")
         self.remainPhaseTime = Time(seconds: 0)
@@ -35,6 +36,7 @@ final class WorkoutState: ObservableObject {
         self.isPaused = false
         self.totalSetsCount = 0
         self.currentSetsCount = 0
+        self.totalWorkoutTime = Time(seconds: 0)
     }
     
     deinit { print("❌ WorkoutState deinit") }
@@ -50,6 +52,7 @@ extension WorkoutState {
         
         createPhases(sets: sets, warmupTime: warmupTime, workoutTime: workoutTime, restTime: restTime)
         self.totalSetsCount = sets
+        self.totalWorkoutTime = calculateTotalWorkoutTime(sets: sets, warmup: warmupTime, workout: workoutTime, rest: restTime)
         
         if !workoutPhases.isEmpty { // 남은 페이즈가 있으면
             let newPhase = popWorkoutPhase()
@@ -81,8 +84,20 @@ extension WorkoutState {
         self.isPaused = false
         self.totalSetsCount = 0
         self.currentSetsCount = 0
+        self.totalWorkoutTime = Time(seconds: 0)
     }
-
+    
+    func calculateTotalWorkoutTime(sets: Int, warmup: Time, workout: Time, rest: Time) -> Time {
+        let warmup = warmup.totalSeconds
+        let workout = workout.totalSeconds
+        let rest = rest.totalSeconds
+        
+        let total = warmup + ((workout + rest) * sets )
+        let min = total / 60
+        let sec = total % 60
+        return Time(minutes: min, seconds: sec)
+    }
+    
 }
 
 // MARK: - 타이머 관련
@@ -127,7 +142,8 @@ extension WorkoutState {
         recordTimerSubscription = Timer.publish(every: 1, on: .main, in: .common)
             .autoconnect()
             .sink { [weak self] _ in
-                self?.recordTime.plus(1)
+                guard let self, !self.isPaused else { return }
+                self.recordTime.plus(1)
             }
     }
     
