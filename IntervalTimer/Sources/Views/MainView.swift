@@ -20,7 +20,7 @@ struct MainView: View {
                 
             case .workout:
                 WorkoutView()
-                
+
             case .setting:
                 Text("setting")
             }

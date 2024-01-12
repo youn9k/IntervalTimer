@@ -10,6 +10,7 @@ import SwiftUI
 struct WorkoutView: View {
     @StateObject var workoutState = WorkoutState.shared
     @StateObject var viewModel: WorkoutViewModel = WorkoutViewModel()
+    @State var isPresented: Bool = false
     
     var body: some View {
         ZStack {
@@ -39,6 +40,9 @@ struct WorkoutView: View {
                 
                 Spacer(minLength: 79)
             }
+        }
+        .fullScreenCover(isPresented: $viewModel.showCongratuation) {
+            CongratuationView(totalWorkoutTIme: viewModel.progressTime.display, highHeartRate: nil, avgHeartRate: nil, burnKcal: nil)
         }
 
     }
@@ -88,7 +92,7 @@ struct WorkoutView: View {
                     Text("WORKOUT_TIME")
                         .font(.TimerFont.bold(size: 20))
                         .foregroundStyle(Color(hex: "909090"))
-                    Text(workoutState.recordTime.display)
+                    Text(viewModel.progressTime.display)
                         .font(.TimerFont.bold(size: 16))
                         .foregroundStyle(Color(hex: "4B88FF"))
                 }
