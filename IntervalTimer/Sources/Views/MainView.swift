@@ -8,9 +8,14 @@
 import SwiftUI
 import BottomSheet
 
+enum BottomSheetTab {
+    case record, setting
+}
+
 struct MainView: View {
     @StateObject var viewRouter = ViewRouter.shared
     @State var bottomSheetPosition: BottomSheetPosition = .absolute(0.4)
+    @State var bottomSheetTab: BottomSheetTab = .record
     
     var body: some View {
         ZStack {
@@ -30,14 +35,13 @@ struct MainView: View {
             headerContent: {
                 bottomSheetHeaderContent()
             }, mainContent: {
-                bottomSheetMainContent()
+                RecordView()
             })
         .customBackground {
             Color.white
                 .clipShape(CustomCorner(corners: [.topLeft, .topRight], radius: 30))
                 .shadow(radius: 20, x: 8, y: 0)
         }
-        .enableAppleScrollBehavior()
         .enableBackgroundBlur()
         .backgroundBlurMaterial(.systemDark)
     }
