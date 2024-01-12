@@ -15,17 +15,19 @@ final class WorkoutState: ObservableObject {
     
     @Published var currentPhase: Phase
     @Published var workoutPhases: [PhaseInfo]
-    @Published var remainPhaseTime: Time
-    @Published var recordTime: Time
+    @Published var remainPhaseTime: Time // 현재 페이즈에서 남은 시간
+    @Published var recordTime: Time // 흐른 시간
     @Published var totalSetsCount: Int
     @Published var currentSetsCount: Int
-    private var totalWorkoutTime: Time
-    
+    @Published var totalWorkoutTime: Time // 전체 운동 시간
+
     private var phaseTimerSubscription: AnyCancellable?
     private var recordTimerSubscription: AnyCancellable?
     
     @Published private(set) var isPaused: Bool
     private var tempPhase: Phase?
+    
+    private var subscriptions = Set<AnyCancellable>()
     // 프로그래스바 만들기
     private init() {
         print("✅ WorkoutState init")

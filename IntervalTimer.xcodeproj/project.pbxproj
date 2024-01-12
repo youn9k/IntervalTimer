@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		7B126EBC2B4C338900FAA8A5 /* Liquid in Frameworks */ = {isa = PBXBuildFile; productRef = 7B126EBB2B4C338900FAA8A5 /* Liquid */; };
 		7B126EBE2B4C338C00FAA8A5 /* BottomSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 7B126EBD2B4C338C00FAA8A5 /* BottomSheet */; };
+		7B1BF67C2B50C6D300B83E61 /* CongratuationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1BF67B2B50C6D300B83E61 /* CongratuationView.swift */; };
+		7B1BF67E2B50C6E600B83E61 /* CongratuationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1BF67D2B50C6E600B83E61 /* CongratuationViewModel.swift */; };
 		7B39B06B2B2D836D00825D33 /* IntervalTimerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B39B06A2B2D836D00825D33 /* IntervalTimerApp.swift */; };
 		7B39B06D2B2D836D00825D33 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B39B06C2B2D836D00825D33 /* ContentView.swift */; };
 		7B39B06F2B2D836E00825D33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B39B06E2B2D836E00825D33 /* Assets.xcassets */; };
@@ -18,12 +20,8 @@
 		7B40E8412B2D884E0062AEDE /* WorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B40E8402B2D884E0062AEDE /* WorkoutView.swift */; };
 		7B40E8432B2DC5500062AEDE /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B40E8422B2DC5500062AEDE /* Utils.swift */; };
 		7B40E8492B2DC7950062AEDE /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B40E8482B2DC7950062AEDE /* Font.swift */; };
-		7B40E84B2B2E872C0062AEDE /* BackgroundColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B40E84A2B2E872C0062AEDE /* BackgroundColorView.swift */; };
-		7B40E84D2B2E8CE90062AEDE /* GlassRemainingTImeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B40E84C2B2E8CE90062AEDE /* GlassRemainingTImeView.swift */; };
-		7B40E8512B2EE7DE0062AEDE /* GlassWorkoutInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B40E8502B2EE7DE0062AEDE /* GlassWorkoutInfoView.swift */; };
 		7B40E8532B2EF0060062AEDE /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B40E8522B2EF0060062AEDE /* CarouselView.swift */; };
 		7B40E85A2B2F05ED0062AEDE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7B40E85C2B2F05ED0062AEDE /* InfoPlist.strings */; };
-		7B40E8602B2F27F10062AEDE /* GlassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B40E85F2B2F27F10062AEDE /* GlassView.swift */; };
 		7B40E8622B2FD86E0062AEDE /* HomeVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B40E8612B2FD86E0062AEDE /* HomeVIew.swift */; };
 		7B40E8642B31E72D0062AEDE /* CustomCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B40E8632B31E72D0062AEDE /* CustomCorner.swift */; };
 		7B40E8662B31ECBC0062AEDE /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B40E8652B31ECBC0062AEDE /* HomeViewModel.swift */; };
@@ -54,6 +52,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7B1BF67B2B50C6D300B83E61 /* CongratuationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratuationView.swift; sourceTree = "<group>"; };
+		7B1BF67D2B50C6E600B83E61 /* CongratuationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratuationViewModel.swift; sourceTree = "<group>"; };
 		7B39B0672B2D836D00825D33 /* IntervalTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IntervalTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B39B06A2B2D836D00825D33 /* IntervalTimerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalTimerApp.swift; sourceTree = "<group>"; };
 		7B39B06C2B2D836D00825D33 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -65,14 +65,10 @@
 		7B40E8402B2D884E0062AEDE /* WorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutView.swift; sourceTree = "<group>"; };
 		7B40E8422B2DC5500062AEDE /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		7B40E8482B2DC7950062AEDE /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
-		7B40E84A2B2E872C0062AEDE /* BackgroundColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundColorView.swift; sourceTree = "<group>"; };
-		7B40E84C2B2E8CE90062AEDE /* GlassRemainingTImeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassRemainingTImeView.swift; sourceTree = "<group>"; };
-		7B40E8502B2EE7DE0062AEDE /* GlassWorkoutInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassWorkoutInfoView.swift; sourceTree = "<group>"; };
 		7B40E8522B2EF0060062AEDE /* CarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
 		7B40E85B2B2F05ED0062AEDE /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7B40E85D2B2F05EF0062AEDE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7B40E85E2B2F05F00062AEDE /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		7B40E85F2B2F27F10062AEDE /* GlassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassView.swift; sourceTree = "<group>"; };
 		7B40E8612B2FD86E0062AEDE /* HomeVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVIew.swift; sourceTree = "<group>"; };
 		7B40E8632B31E72D0062AEDE /* CustomCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCorner.swift; sourceTree = "<group>"; };
 		7B40E8652B31ECBC0062AEDE /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -197,6 +193,7 @@
 				7B40E83E2B2D87F90062AEDE /* MainView.swift */,
 				7B40E8612B2FD86E0062AEDE /* HomeVIew.swift */,
 				7B40E8402B2D884E0062AEDE /* WorkoutView.swift */,
+				7B1BF67B2B50C6D300B83E61 /* CongratuationView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -206,6 +203,7 @@
 			children = (
 				7B40E8672B31ED300062AEDE /* WorkoutViewModel.swift */,
 				7B40E8652B31ECBC0062AEDE /* HomeViewModel.swift */,
+				7B1BF67D2B50C6E600B83E61 /* CongratuationViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -223,11 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				7BAEB10C2B47A7520049E9A5 /* LiquidView.swift */,
-				7B40E84A2B2E872C0062AEDE /* BackgroundColorView.swift */,
 				7B40E8522B2EF0060062AEDE /* CarouselView.swift */,
-				7B40E84C2B2E8CE90062AEDE /* GlassRemainingTImeView.swift */,
-				7B40E8502B2EE7DE0062AEDE /* GlassWorkoutInfoView.swift */,
-				7B40E85F2B2F27F10062AEDE /* GlassView.swift */,
 				7B40E8632B31E72D0062AEDE /* CustomCorner.swift */,
 			);
 			path = Components;
@@ -377,18 +371,16 @@
 				7BAEB1072B46993F0049E9A5 /* Time.swift in Sources */,
 				7B40E8412B2D884E0062AEDE /* WorkoutView.swift in Sources */,
 				7B39B06B2B2D836D00825D33 /* IntervalTimerApp.swift in Sources */,
-				7B40E84B2B2E872C0062AEDE /* BackgroundColorView.swift in Sources */,
 				7BAEB10B2B46DEC90049E9A5 /* ViewRouter.swift in Sources */,
 				7B40E8642B31E72D0062AEDE /* CustomCorner.swift in Sources */,
 				7BAEB1002B3440050049E9A5 /* SetupWorkoutType.swift in Sources */,
 				7BBCFBD52B4932AB006B4D3F /* Color.swift in Sources */,
 				7BBCFBDD2B4C1031006B4D3F /* WorkoutState.swift in Sources */,
-				7B40E8512B2EE7DE0062AEDE /* GlassWorkoutInfoView.swift in Sources */,
+				7B1BF67E2B50C6E600B83E61 /* CongratuationViewModel.swift in Sources */,
 				7B40E8662B31ECBC0062AEDE /* HomeViewModel.swift in Sources */,
-				7B40E8602B2F27F10062AEDE /* GlassView.swift in Sources */,
 				7B40E8622B2FD86E0062AEDE /* HomeVIew.swift in Sources */,
 				7B40E8492B2DC7950062AEDE /* Font.swift in Sources */,
-				7B40E84D2B2E8CE90062AEDE /* GlassRemainingTImeView.swift in Sources */,
+				7B1BF67C2B50C6D300B83E61 /* CongratuationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

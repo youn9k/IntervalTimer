@@ -69,8 +69,8 @@ struct CarouselView<Content: View>: View {
     ZStack {
         Color.green.ignoresSafeArea()
         CarouselView(pageCount: 2, visibleEdgeSpace: 1, spacing: 60, content: {_ in
-            GlassWorkoutInfoView(width: APP_WIDTH()-80, height: 200, workoutInfos: [])
-            GlassWorkoutInfoView(width: APP_WIDTH()-80, height: 200, workoutInfos: [])
+            RoundedRectangle(cornerRadius: 25).frame(width: 300, height: 200)
+            RoundedRectangle(cornerRadius: 25).frame(width: 300, height: 200)
             Spacer()
         })
         .background(Color.yellow)

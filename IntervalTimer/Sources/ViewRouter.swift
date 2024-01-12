@@ -18,7 +18,7 @@ class ViewRouter: ObservableObject {
     
     private init() {
         print("✅ ViewRouter init")
-        self.viewType = .workout
+        self.viewType = .home
     }
     
     deinit { print("❌ ViewRouter deinit") }
