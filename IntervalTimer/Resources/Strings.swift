@@ -1,5 +1,5 @@
 //
-//  LocalizedStrings.swift
+//  Strings.swift
 //  IntervalTimer
 //
 //  Created by YoungK on 1/12/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public enum LocalizedStrings: String {
+public enum Strings: String {
     case totalWorkoutTime = "TOTAL_WORKOUT_TIME"
     case workoutTIme = "WORKOUT_TIME"
     case numOFSets = "NUM_OF_SETS"
