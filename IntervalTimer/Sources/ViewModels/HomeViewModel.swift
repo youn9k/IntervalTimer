@@ -27,8 +27,8 @@ final class HomeViewModel: ObservableObject, HomeViewModelType {
     
     @Published var countOfSets: Int = 1
     @Published var timeOfWarmup: Time = .init(minutes: 0, seconds: 10)
-    @Published var timeOfWorkout: Time = .init(minutes: 0, seconds: 40)
-    @Published var timeOfRest: Time = .init(minutes: 0, seconds: 20)
+    @Published var timeOfWorkout: Time = .init(minutes: 0, seconds: 5)
+    @Published var timeOfRest: Time = .init(minutes: 0, seconds: 5)
     @Published var totalTime: Time = .init(minutes: 0, seconds: 0)
     
     init() {
@@ -38,6 +38,7 @@ final class HomeViewModel: ObservableObject, HomeViewModelType {
     
     deinit {
         print("❌ HomeViewModel deinit")
+        subscription.removeAll()
     }
     
     private func bindInput() {

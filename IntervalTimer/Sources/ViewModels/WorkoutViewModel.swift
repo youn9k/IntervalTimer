@@ -12,6 +12,7 @@ public protocol WorkoutViewModelInput {
 }
 
 public protocol WorkoutViewModelOutput {
+    var progressTime: Time { get }
     var workoutProgress: Double { get }
 }
 
@@ -21,12 +22,15 @@ class WorkoutViewModel: ObservableObject, WorkoutViewModelType {
     private var subscription = Set<AnyCancellable>()
     private var workoutState = WorkoutState.shared
     
+    @Published var progressTime: Time
     @Published var workoutProgress: Double
+    @Published var showCongratuation: Bool
     
     init() {
         print("✅ WorkoutViewModel 생성")
+        progressTime = .init()
         workoutProgress = 0
-        
+        showCongratuation = false
         bindOutput()
     }
     
@@ -36,7 +40,11 @@ class WorkoutViewModel: ObservableObject, WorkoutViewModelType {
     }
     
     private func bindOutput() {
-        workoutState.$recordTime
+        workoutState.$progressTime
+            .assign(to: \.progressTime, on: self)
+            .store(in: &subscription)
+        
+        workoutState.$progressTime
             .filter { [weak self] _ in
                 return (self?.workoutState.totalWorkoutTime.totalSeconds ?? 0 > 0)
             }
@@ -48,6 +56,10 @@ class WorkoutViewModel: ObservableObject, WorkoutViewModelType {
                 self.workoutProgress = progress
             }
             .store(in: &subscription)
+        
+        workoutState.workoutFinished.sink { [weak self] _ in
+            self?.showCongratuation = true
+        }.store(in: &subscription)
     }
     
 }
