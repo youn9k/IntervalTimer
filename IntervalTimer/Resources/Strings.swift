@@ -28,6 +28,8 @@ public enum Strings: String {
     case burnKcal = "BURN_KCAL"
     case confirm = "CONFIRM"
     case language = "LANGUAGE"
+    case sound = "SOUND"
+    case vibration = "VIBRATION"
     
     var localized: LocalizedStringKey {
         return LocalizedStringKey(self.rawValue)
