@@ -31,7 +31,7 @@ final class WorkoutState: ObservableObject {
     private var tempPhase: Phase?
     
     private var subscriptions = Set<AnyCancellable>()
-    // 프로그래스바 만들기
+
     private init() {
         print("✅ WorkoutState init")
         self.remainPhaseTime = Time()
