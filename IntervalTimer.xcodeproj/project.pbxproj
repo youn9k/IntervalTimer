@@ -15,6 +15,7 @@
 		7B1BF6822B512D5000B83E61 /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1BF6812B512D5000B83E61 /* RecordView.swift */; };
 		7B1BF6842B512DAF00B83E61 /* RecordDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1BF6832B512DAF00B83E61 /* RecordDetailView.swift */; };
 		7B1BF6862B51302300B83E61 /* RecordMoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1BF6852B51302300B83E61 /* RecordMoreView.swift */; };
+		7B1BF6882B51725100B83E61 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1BF6872B51725100B83E61 /* SettingView.swift */; };
 		7B39B06B2B2D836D00825D33 /* IntervalTimerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B39B06A2B2D836D00825D33 /* IntervalTimerApp.swift */; };
 		7B39B06D2B2D836D00825D33 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B39B06C2B2D836D00825D33 /* ContentView.swift */; };
 		7B39B06F2B2D836E00825D33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B39B06E2B2D836E00825D33 /* Assets.xcassets */; };
@@ -62,6 +63,7 @@
 		7B1BF6812B512D5000B83E61 /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
 		7B1BF6832B512DAF00B83E61 /* RecordDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDetailView.swift; sourceTree = "<group>"; };
 		7B1BF6852B51302300B83E61 /* RecordMoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordMoreView.swift; sourceTree = "<group>"; };
+		7B1BF6872B51725100B83E61 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		7B39B0672B2D836D00825D33 /* IntervalTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IntervalTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B39B06A2B2D836D00825D33 /* IntervalTimerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalTimerApp.swift; sourceTree = "<group>"; };
 		7B39B06C2B2D836D00825D33 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 				7B1BF6812B512D5000B83E61 /* RecordView.swift */,
 				7B1BF6832B512DAF00B83E61 /* RecordDetailView.swift */,
 				7B1BF6852B51302300B83E61 /* RecordMoreView.swift */,
+				7B1BF6872B51725100B83E61 /* SettingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 				7B40E8662B31ECBC0062AEDE /* HomeViewModel.swift in Sources */,
 				7B40E8622B2FD86E0062AEDE /* HomeVIew.swift in Sources */,
 				7B40E8492B2DC7950062AEDE /* Font.swift in Sources */,
+				7B1BF6882B51725100B83E61 /* SettingView.swift in Sources */,
 				7B1BF67C2B50C6D300B83E61 /* CongratuationView.swift in Sources */,
 				7B1BF6862B51302300B83E61 /* RecordMoreView.swift in Sources */,
 			);
