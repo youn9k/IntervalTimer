@@ -27,6 +27,7 @@ public enum Strings: String {
     case avgHeartRate = "AVG_HEART_RATE"
     case burnKcal = "BURN_KCAL"
     case confirm = "CONFIRM"
+    case language = "LANGUAGE"
     
     var localized: LocalizedStringKey {
         return LocalizedStringKey(self.rawValue)
