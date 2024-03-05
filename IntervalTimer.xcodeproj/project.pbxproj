@@ -48,6 +48,8 @@
 		7BBCFBDB2B495B4C006B4D3F /* Inter-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7BBCFBDA2B495B4C006B4D3F /* Inter-Bold.otf */; };
 		7BBCFBDD2B4C1031006B4D3F /* WorkoutState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBCFBDC2B4C1031006B4D3F /* WorkoutState.swift */; };
 		7BBCFBE22B4C3164006B4D3F /* TimeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBCFBE12B4C3164006B4D3F /* TimeTest.swift */; };
+		7BE50C1A2B97050A0046EB6B /* ColorLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE50C192B97050A0046EB6B /* ColorLiterals.swift */; };
+		7BE50C1C2B97069E0046EB6B /* ImageLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE50C1B2B97069E0046EB6B /* ImageLiterals.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +107,8 @@
 		7BBCFBDA2B495B4C006B4D3F /* Inter-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.otf"; sourceTree = "<group>"; };
 		7BBCFBDC2B4C1031006B4D3F /* WorkoutState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutState.swift; sourceTree = "<group>"; };
 		7BBCFBE12B4C3164006B4D3F /* TimeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTest.swift; sourceTree = "<group>"; };
+		7BE50C192B97050A0046EB6B /* ColorLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorLiterals.swift; sourceTree = "<group>"; };
+		7BE50C1B2B97069E0046EB6B /* ImageLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLiterals.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +195,8 @@
 				7B40E85C2B2F05ED0062AEDE /* InfoPlist.strings */,
 				7B40E86D2B31EE0E0062AEDE /* Localizable.strings */,
 				7B1BF67F2B50CB1700B83E61 /* Strings.swift */,
+				7BE50C192B97050A0046EB6B /* ColorLiterals.swift */,
+				7BE50C1B2B97069E0046EB6B /* ImageLiterals.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -332,6 +338,7 @@
 					};
 					7B39B0762B2D836E00825D33 = {
 						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = 7B39B0662B2D836D00825D33;
 					};
 				};
 			};
@@ -389,11 +396,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BBCFBD52B4932AB006B4D3F /* Color.swift in Sources */,
+				7B1BF6802B50CB1700B83E61 /* Strings.swift in Sources */,
 				7B40E8532B2EF0060062AEDE /* CarouselView.swift in Sources */,
 				7B40E8432B2DC5500062AEDE /* Utils.swift in Sources */,
 				7B1BF6902B67383000B83E61 /* HapticManager.swift in Sources */,
 				7B39B06D2B2D836D00825D33 /* ContentView.swift in Sources */,
 				7BAEB10D2B47A7520049E9A5 /* LiquidView.swift in Sources */,
+				7BE50C1C2B97069E0046EB6B /* ImageLiterals.swift in Sources */,
 				7B40E83F2B2D87F90062AEDE /* MainView.swift in Sources */,
 				7B1BF68A2B61EF9000B83E61 /* SettingViewModel.swift in Sources */,
 				7B40E8682B31ED300062AEDE /* WorkoutViewModel.swift in Sources */,
@@ -404,11 +414,10 @@
 				7B1BF6822B512D5000B83E61 /* RecordView.swift in Sources */,
 				7B40E8642B31E72D0062AEDE /* CustomCorner.swift in Sources */,
 				7BAEB1002B3440050049E9A5 /* SetupWorkoutType.swift in Sources */,
-				7BBCFBD52B4932AB006B4D3F /* Color.swift in Sources */,
 				7BBCFBDD2B4C1031006B4D3F /* WorkoutState.swift in Sources */,
-				7B1BF6802B50CB1700B83E61 /* Strings.swift in Sources */,
 				7B1BF68E2B61F24C00B83E61 /* UserState.swift in Sources */,
 				7B1BF6842B512DAF00B83E61 /* RecordDetailView.swift in Sources */,
+				7BE50C1A2B97050A0046EB6B /* ColorLiterals.swift in Sources */,
 				7B1BF67E2B50C6E600B83E61 /* CongratuationViewModel.swift in Sources */,
 				7B40E8662B31ECBC0062AEDE /* HomeViewModel.swift in Sources */,
 				7B40E8622B2FD86E0062AEDE /* HomeVIew.swift in Sources */,
@@ -648,6 +657,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MPMHNJMTGA;
@@ -659,6 +669,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IntervalTimer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/IntervalTimer";
 			};
 			name = Debug;
 		};
@@ -666,6 +677,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MPMHNJMTGA;
@@ -677,6 +689,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IntervalTimer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/IntervalTimer";
 			};
 			name = Release;
 		};

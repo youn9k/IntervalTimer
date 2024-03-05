@@ -26,7 +26,7 @@ final class TimeTest: XCTestCase {
         // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
     }
 
-    func timeMinusTest() {
+    func timeMinusTest() throws {
         var time = Time(minutes: 3, seconds: 45)
         time.minus(230)
         print(time)
