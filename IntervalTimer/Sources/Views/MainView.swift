@@ -50,7 +50,7 @@ struct MainView: View {
         VStack {
             HStack(spacing: 40) {
                 Spacer()
-                Image(.recordGray)
+                ImageLiterals.recordGray
                     .resizable()
                     .frame(width: 32, height: 32)
                     .padding(.horizontal, 40)
@@ -58,7 +58,7 @@ struct MainView: View {
                         self.bottomSheetPosition = .relativeTop(0.9)
                     }
                 
-                Image(.gearGray)
+                ImageLiterals.gearGray
                     .resizable()
                     .frame(width: 32, height: 32)
                     .padding(.horizontal, 40)

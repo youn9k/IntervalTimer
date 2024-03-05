@@ -141,6 +141,14 @@ extension WorkoutState {
                 if newPhase.state == .workout { self.currentSetsCount += 1 }
                 startPhaseTimer()
                 
+                if UserState.shared.isSoundEnabled {
+                    
+                }
+                
+                if UserState.shared.isVibrationEnabled {
+                    HapticManager.shared.impact(style: .medium)
+                }
+                
             } else { // 남은 페이즈가 없음 -> 운동 종료
                 workoutFinished.send(true)
                 cancelPhaseTimer()

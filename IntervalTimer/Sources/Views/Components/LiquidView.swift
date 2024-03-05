@@ -18,7 +18,7 @@ struct LiquidView: View {
 
 #Preview {
     VStack {
-        LiquidView(color: .timerBlue)
+        LiquidView(color: ColorLiterals.timerBlue)
             .frame(width: 300, height: 200)
     }.frame(width: APP_WIDTH(), height: APP_HEIGHT())
     

@@ -142,10 +142,17 @@ struct WorkoutView: View {
             workoutState.resumeWorkout() :
             workoutState.pauseWorkout()
         }, label: {
-            Image(workoutState.isPaused ? ImageResource.play : ImageResource.pause)
-                .resizable()
-                .frame(width: 120, height: 120)
-                .shadow(radius: 20, x: 0, y: 8)
+            if workoutState.isPaused {
+                ImageLiterals.play
+                    .resizable()
+                    .frame(width: 120, height: 120)
+                    .shadow(radius: 20, x: 0, y: 8)
+            } else {
+                ImageLiterals.pause
+                    .resizable()
+                    .frame(width: 120, height: 120)
+                    .shadow(radius: 20, x: 0, y: 8)
+            }
         }).buttonStyle(ScaledButtonStyle())
     }
     

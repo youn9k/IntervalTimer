@@ -27,7 +27,7 @@ struct CongratuationView: View {
             
             Spacer(minLength: 32)
             
-            Image(.checkGreen)
+            ImageLiterals.checkGreen
                 .resizable()
                 .frame(width: 80, height: 80)
                 .shadow(radius: 20, x: 0, y: 4)
