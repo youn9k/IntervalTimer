@@ -7,7 +7,7 @@
 
 import SwiftUI
 import Combine
-
+import AVFoundation
 
 
 final class WorkoutState: ObservableObject {
@@ -142,11 +142,12 @@ extension WorkoutState {
                 startPhaseTimer()
                 
                 if UserState.shared.isSoundEnabled {
-                    
+                    let soundID: SystemSoundID = 1322 // Calypso
+                    AudioServicesPlayAlertSound(soundID)
                 }
                 
                 if UserState.shared.isVibrationEnabled {
-                    HapticManager.shared.impact(style: .medium)
+                    //HapticManager.shared.impact(style: .medium)
                 }
                 
             } else { // 남은 페이즈가 없음 -> 운동 종료
