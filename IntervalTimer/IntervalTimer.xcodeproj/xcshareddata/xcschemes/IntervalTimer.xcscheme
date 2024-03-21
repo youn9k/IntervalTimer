@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1500"
-   version = "1.7">
+   LastUpgradeVersion = "1530"
+   version = "2.2">
    <BuildAction
       parallelizeBuildables = "YES"
-      buildImplicitDependencies = "YES">
+      buildImplicitDependencies = "YES"
+      buildArchitectures = "Automatic">
       <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <AutocreatedTestPlanReference>
+            </AutocreatedTestPlanReference>
+         </BuildActionEntry>
          <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
@@ -14,7 +24,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7B39B0662B2D836D00825D33"
+               BlueprintIdentifier = "7B0E91742BAC26F40050ADEC"
                BuildableName = "IntervalTimer.app"
                BlueprintName = "IntervalTimer"
                ReferencedContainer = "container:IntervalTimer.xcodeproj">
@@ -34,20 +44,9 @@
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7B39B0762B2D836E00825D33"
+               BlueprintIdentifier = "7B314DD02BAC2DA100D017A5"
                BuildableName = "IntervalTimerTests.xctest"
                BlueprintName = "IntervalTimerTests"
-               ReferencedContainer = "container:IntervalTimer.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "YES"
-            parallelizable = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7B39B0802B2D836E00825D33"
-               BuildableName = "IntervalTimerUITests.xctest"
-               BlueprintName = "IntervalTimerUITests"
                ReferencedContainer = "container:IntervalTimer.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -67,7 +66,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7B39B0662B2D836D00825D33"
+            BlueprintIdentifier = "7B0E91742BAC26F40050ADEC"
             BuildableName = "IntervalTimer.app"
             BlueprintName = "IntervalTimer"
             ReferencedContainer = "container:IntervalTimer.xcodeproj">
@@ -84,7 +83,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7B39B0662B2D836D00825D33"
+            BlueprintIdentifier = "7B0E91742BAC26F40050ADEC"
             BuildableName = "IntervalTimer.app"
             BlueprintName = "IntervalTimer"
             ReferencedContainer = "container:IntervalTimer.xcodeproj">

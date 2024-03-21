@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1500"
+   LastUpgradeVersion = "1530"
    version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
-      buildImplicitDependencies = "YES">
+      buildImplicitDependencies = "YES"
+      buildArchitectures = "Automatic">
    </BuildAction>
    <TestAction
       buildConfiguration = "Debug"
@@ -18,7 +19,7 @@
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7B39B0762B2D836E00825D33"
+               BlueprintIdentifier = "7B314DD02BAC2DA100D017A5"
                BuildableName = "IntervalTimerTests.xctest"
                BlueprintName = "IntervalTimerTests"
                ReferencedContainer = "container:IntervalTimer.xcodeproj">
