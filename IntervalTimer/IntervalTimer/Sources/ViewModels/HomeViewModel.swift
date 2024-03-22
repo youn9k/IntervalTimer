@@ -46,7 +46,7 @@ final class HomeViewModel: ObservableObject, HomeViewModelType {
         let calculateAndFormatTotalTime: () -> Void = {
             let total = WorkoutState.shared.calculateTotalWorkoutTime(
                 sets: self.countOfSets,
-                warmup: self.timeOfWarmup,
+                warmup: self.warmupIsOn ? self.timeOfWarmup : nil,
                 workout: self.timeOfWorkout,
                 rest: self.timeOfRest
             )
@@ -55,7 +55,7 @@ final class HomeViewModel: ObservableObject, HomeViewModelType {
         
         Publishers.CombineLatest4(
             $countOfSets,
-            $timeOfWarmup,
+            $warmupIsOn,
             $timeOfWorkout,
             $timeOfRest
         )
