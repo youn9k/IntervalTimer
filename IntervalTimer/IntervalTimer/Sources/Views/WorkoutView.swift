@@ -10,7 +10,7 @@ import SwiftUI
 struct WorkoutView: View {
     @StateObject var workoutState = WorkoutState.shared
     @StateObject var viewModel: WorkoutViewModel = WorkoutViewModel()
-    @State var isPresented: Bool = false
+    @State var showToast: Bool = false
     
     var body: some View {
         ZStack {
@@ -41,10 +41,34 @@ struct WorkoutView: View {
                 Spacer(minLength: 79)
             }
         }
+        .overlay(alignment: .bottom) {
+            toastMessage(message: "일시정지를 길게 누르면 운동이 종료됩니다.")
+                .opacity(showToast ? 1 : 0)
+                .padding(.bottom, 20)
+                
+        }
         .fullScreenCover(isPresented: $viewModel.showCongratuation) {
             CongratuationView(totalWorkoutTIme: viewModel.progressTime.display, highHeartRate: nil, avgHeartRate: nil, burnKcal: nil)
         }
 
+    }
+    
+    func toastMessage(message: String) -> some View {
+        Text(message)
+            .font(.TimerFont.medium(size: 15))
+            .foregroundStyle(.white)
+            .padding(.vertical, 15)
+            .padding(.horizontal, 20)
+            .background {
+                RoundedRectangle(cornerRadius: 20)
+                    .foregroundStyle(.black)
+                    .opacity(0.5)
+            }
+            .onChange(of: showToast) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    withAnimation { showToast = false }
+                }
+            }
     }
     
     func backgroundGradientView(colors: [Color]) -> some View {
@@ -138,9 +162,6 @@ struct WorkoutView: View {
     
     func playPauseButton() -> some View {
         Button(action: {
-            workoutState.isPaused ?
-            workoutState.resumeWorkout() :
-            workoutState.pauseWorkout()
         }, label: {
             if workoutState.isPaused {
                 ImageLiterals.play
@@ -153,7 +174,29 @@ struct WorkoutView: View {
                     .frame(width: 120, height: 120)
                     .shadow(radius: 20, x: 0, y: 8)
             }
-        }).buttonStyle(ScaledButtonStyle())
+        })
+        .buttonStyle(ScaledButtonStyle())
+        .simultaneousGesture(
+            LongPressGesture(minimumDuration: 2, maximumDistance: 3.0)
+                .onEnded { _ in
+                    if !workoutState.isPaused {
+                        workoutState.clearWorkout()
+                        ViewRouter.shared.change(to: .home)
+                    }
+                }
+        )
+        .highPriorityGesture(
+            TapGesture()
+                .onEnded { _ in
+                    if workoutState.isPaused {
+                        workoutState.resumeWorkout()
+                    } else {
+                        workoutState.pauseWorkout()
+                        withAnimation { showToast = true }
+                    }
+                }
+        )
+        
     }
     
     func totalWorkoutProgressBar(progress: CGFloat, width: CGFloat, height: CGFloat) -> some View {
