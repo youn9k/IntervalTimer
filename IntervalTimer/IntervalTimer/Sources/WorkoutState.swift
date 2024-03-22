@@ -53,7 +53,7 @@ final class WorkoutState: ObservableObject {
 // MARK: - 외부에서 접근가능한 메소드들
 
 extension WorkoutState {
-    func startWorkout(sets: Int, warmupTime: Time, workoutTime: Time, restTime: Time) {
+    func startWorkout(sets: Int, warmupTime: Time?, workoutTime: Time, restTime: Time) {
         clearWorkout()
         
         createPhases(sets: sets, warmupTime: warmupTime, workoutTime: workoutTime, restTime: restTime)
@@ -98,8 +98,8 @@ extension WorkoutState {
         self.phaseChanged = .init()
     }
     
-    func calculateTotalWorkoutTime(sets: Int, warmup: Time, workout: Time, rest: Time) -> Time {
-        let warmup = warmup.totalSeconds
+    func calculateTotalWorkoutTime(sets: Int, warmup: Time?, workout: Time, rest: Time) -> Time {
+        let warmup = warmup?.totalSeconds ?? 0
         let workout = workout.totalSeconds
         let rest = rest.totalSeconds
         
@@ -181,10 +181,12 @@ extension WorkoutState {
         var time: Time
     }
     
-    private func createPhases(sets: Int, warmupTime: Time, workoutTime: Time, restTime: Time) {
+    private func createPhases(sets: Int, warmupTime: Time?, workoutTime: Time, restTime: Time) {
         var phases: [PhaseInfo] = []
         
-        phases.append(PhaseInfo(state: .warmup, time: warmupTime))
+        if let warmupTime {
+            phases.append(PhaseInfo(state: .warmup, time: warmupTime))
+        }
         
         for setIndex in 0..<sets {
             phases.append(PhaseInfo(state: .workout, time: workoutTime))

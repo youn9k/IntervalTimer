@@ -28,7 +28,7 @@ struct HomeView: View {
                     HStack {
                         setupButton(type: .sets, label: capsuleView(type: .sets, width: 130, height: 40))
                         Spacer()
-                        setupButton(type: .warmup, label: capsuleView(type: .warmup, width: 130, height: 40))
+                        warmupToggleButton().frame(width: 130, height: 40)
                     }
                     
                     setupButton(type: .workout, label: cardView(type: .workout, width: 353, height: 100))
@@ -91,6 +91,34 @@ struct HomeView: View {
         }) {
             label
                 .scaleEffect(selectedSetupWorkoutType == type && showPicker ? 1.1 : 1)
+        }
+        .buttonStyle(ScaledButtonStyle())
+    }
+    
+    private func warmupToggleButton() -> some View {
+        Button(action: {
+            withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 0.7, blendDuration: 0.25)) {
+                viewModel.warmupIsOn.toggle()
+            }
+        }) {
+            RoundedRectangle(cornerRadius: 20)
+                .fill(.white)
+                .shadow(radius: 8, x: 0, y: 4)
+                .overlay {
+                    HStack {
+                        Text(Strings.warmUp.localized)
+                            .font(.TimerFont.bold(size: 12))
+                            .lineLimit(1)
+                            .foregroundStyle(Color(hex: "9D9D9D"))
+                                             
+                        Spacer()
+                        
+                        Text(viewModel.warmupIsOn ? "On" : "Off")
+                            .font(.TimerFont.bold(size: 12))
+                            .foregroundStyle(viewModel.warmupIsOn ? Color(hex: "FF0000") : Color(hex: "9D9D9D"))
+                    }
+                    .padding(.horizontal, 10)
+                }
         }
         .buttonStyle(ScaledButtonStyle())
     }

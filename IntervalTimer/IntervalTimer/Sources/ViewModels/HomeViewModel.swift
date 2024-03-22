@@ -25,6 +25,7 @@ typealias HomeViewModelType = HomeViewModelInput & HomeViewModelOutput
 final class HomeViewModel: ObservableObject, HomeViewModelType {
     private var subscription = Set<AnyCancellable>()
     
+    @Published var warmupIsOn: Bool = true
     @Published var countOfSets: Int = 1
     @Published var timeOfWarmup: Time = .init(minutes: 0, seconds: 10)
     @Published var timeOfWorkout: Time = .init(minutes: 0, seconds: 5)
@@ -66,7 +67,7 @@ final class HomeViewModel: ObservableObject, HomeViewModelType {
     }
     
     func workoutStart() {
-        WorkoutState.shared.startWorkout(sets: countOfSets, warmupTime: timeOfWarmup, workoutTime: timeOfWorkout, restTime: timeOfRest)
+        WorkoutState.shared.startWorkout(sets: countOfSets, warmupTime: warmupIsOn ? timeOfWarmup : nil, workoutTime: timeOfWorkout, restTime: timeOfRest)
     }
     
 }
