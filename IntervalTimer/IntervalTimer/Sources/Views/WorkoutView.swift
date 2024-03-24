@@ -42,7 +42,7 @@ struct WorkoutView: View {
             }
         }
         .overlay(alignment: .bottom) {
-            toastMessage(message: "일시정지를 길게 누르면 운동이 종료됩니다.")
+            toastMessage(message: "일시정지를 길게 누르면 운동이 종료됩니다.", time: 2)
                 .opacity(showToast ? 1 : 0)
                 .padding(.bottom, 20)
                 
@@ -53,7 +53,7 @@ struct WorkoutView: View {
 
     }
     
-    func toastMessage(message: String) -> some View {
+    func toastMessage(message: String, time: Double) -> some View {
         Text(message)
             .font(.TimerFont.medium(size: 15))
             .foregroundStyle(.white)
@@ -65,7 +65,7 @@ struct WorkoutView: View {
                     .opacity(0.5)
             }
             .onChange(of: showToast) {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + time) {
                     withAnimation { showToast = false }
                 }
             }
